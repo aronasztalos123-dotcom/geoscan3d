@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Geoscan3D">
+  
+  <line x1="32.17" y1="14" x2="67.83" y2="14" stroke="#FFFFFF" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="19.33" y1="26" x2="46.00" y2="26" stroke="#F1F2ED" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="13.55" y1="38" x2="46.00" y2="38" stroke="#DDE3CF" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="11.80" y1="50" x2="38.00" y2="50" stroke="#C3CCA9" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="48.00" y1="50" x2="102.20" y2="50" stroke="#C9F24D" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="13.55" y1="62" x2="86.45" y2="62" stroke="#A2AC82" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="19.33" y1="74" x2="80.67" y2="74" stroke="#8A9870" stroke-width="7.6" stroke-linecap="round"/>
+  <line x1="32.17" y1="86" x2="67.83" y2="86" stroke="#738260" stroke-width="7.6" stroke-linecap="round"/>
+</svg>

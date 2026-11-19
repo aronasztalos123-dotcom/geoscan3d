@@ -1,0 +1,19 @@
+node_modules
+.next
+out
+.vercel
+.env*.local
+.env
+*.log
+.dev.log
+.taste-skill
+_src/raw
+next-env.d.ts
+
+# design-tool working files and raw sources (not part of the site)
+.claude
+.impeccable
+.taste-skill-v4
+graphify-out
+*.tsbuildinfo
+/hero.mp4
