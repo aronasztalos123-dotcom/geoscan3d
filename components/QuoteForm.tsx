@@ -10,7 +10,7 @@ type Status = { kind: "idle" | "sending" | "sent" } | { kind: "fallback"; mailto
 
 const fieldsOrder = ["nev", "telefon", "email", "szolgaltatas", "helyszin", "szoftver", "uzenet"] as const;
 
-export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftware = "" }: { defaultService?: string; defaultPlace?: string; defaultSoftware?: string }) {
+export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftware = "", defaultMessage = "" }: { defaultService?: string; defaultPlace?: string; defaultSoftware?: string; defaultMessage?: string }) {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [sw, setSw] = useState(defaultSoftware);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -129,7 +129,7 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
       </div>
       <div className="field field-wide">
         <label htmlFor="f-uzenet">Üzenet</label>
-        <textarea id="f-uzenet" name="uzenet" rows={4} />
+        <textarea id="f-uzenet" name="uzenet" rows={4} defaultValue={defaultMessage} />
       </div>
       {/* Spam-csapda: ember nem látja, nem tölti ki. */}
       <div className="hp" aria-hidden="true">

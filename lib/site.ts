@@ -15,10 +15,6 @@ export const site = {
   // TODO(ügyfél): székhely, ha nyilvános. Üresen hagyva a schema areaServed alapú marad.
   address: null as null | { street: string; zip: string; city: string },
   area: "Borsod-Abaúj-Zemplén és az M3 mentén Budapestig",
-  equipment: {
-    scanner: "3DMakerpro Raven",
-    camera: "Insta360 X4",
-  },
 };
 
 /** Igaz, ha az érték már nem [HELYKITÖLTŐ]. */
@@ -40,4 +36,5 @@ export const nav = [
   { href: "/mit-kap", label: "Mit kap" },
   { href: "/rolam", label: "Rólam" },
   { href: "/gyik", label: "GYIK" },
+  { href: "/arkalkulator", label: "Árkalkulátor" },
 ];

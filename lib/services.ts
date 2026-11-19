@@ -113,7 +113,7 @@ export const services: Service[] = [
     page: {
       intro: [
         "A virtuális bejárás egy böngészőben megnyíló, fotórealisztikus 3D modell. A látogató szabadon mozog benne, és mérni is tud: milyen széles a terem, milyen magas a belmagasság.",
-        "A modellt Gaussian Splatting eljárással készítem a lézeres pontfelhőből és a szkennerre szerelt Insta360 X4 360°-os kamera képeiből. Mellé méretarányos alaprajz jár, így a csomag egyszerre látvány és műszaki adat.",
+        "A modellt Gaussian Splatting eljárással készítem a lézeres pontfelhőből és a szkennerre szerelt 360°-os kamera képeiből. Mellé méretarányos alaprajz jár, így a csomag egyszerre látvány és műszaki adat.",
       ],
       situations: [
         {

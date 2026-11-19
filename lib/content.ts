@@ -140,7 +140,7 @@ export const faq: { q: string; a: string }[] = [
   },
   {
     q: "Hogyan áll össze az ár?",
-    a: "A felmért terület méretéből, a kért rajzokból és formátumokból, valamint a kiszállásból. Árlista helyett egyedi ajánlatot adok, a munka megkezdése előtt, írásban.",
+    a: "A felmért terület méretéből, a kért rajzokból és formátumokból, valamint a kiszállásból. Az árkalkulátorral nagyjából kiszámolhatja előre; a végleges árat egyedi ajánlatban, a munka megkezdése előtt, írásban adom meg.",
   },
   {
     q: "Mi az az EOV, és miért számít?",

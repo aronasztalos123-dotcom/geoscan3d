@@ -38,7 +38,7 @@ export default function MethodPage() {
           },
           {
             word: "Bejárás",
-            text: `${site.equipment.scanner} kézi szkennerrel, ${site.equipment.camera} 360°-os kamerával. Egy régi háznál 20–30 perc.`,
+            text: "Kézi lézerszkennerrel és a rá szerelt 360°-os kamerával végigjárom az épületet. Egy régi háznál 20–30 perc.",
             img: { src: "/img/scan/kapolna-foto.webp", alt: "Egy kis barokk kápolna oldalfala napsütésben" },
           },
           {

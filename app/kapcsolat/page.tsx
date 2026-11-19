@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kapcsolat" },
 };
 
-type Props = { searchParams: Promise<{ szolgaltatas?: string; program?: string }> };
+type Props = { searchParams: Promise<{ szolgaltatas?: string; program?: string; becsles?: string }> };
 
 export default async function ContactPage({ searchParams }: Props) {
-  const { szolgaltatas, program } = await searchParams;
+  const { szolgaltatas, program, becsles } = await searchParams;
   const preset = szolgaltatas ? serviceBySlug(szolgaltatas)?.name : undefined;
   const sw = software.find((s) => s.id === program)?.name;
   return (
@@ -45,7 +45,7 @@ export default async function ContactPage({ searchParams }: Props) {
           </aside>
           <div className="contact-form">
             <h2 id="urlap-h" className="t-l" style={{ marginBottom: 24 }}>Ajánlatkérő űrlap</h2>
-            <QuoteForm defaultService={preset} defaultSoftware={sw} />
+            <QuoteForm defaultService={preset} defaultSoftware={sw} defaultMessage={becsles?.slice(0, 1200)} />
           </div>
         </div>
       </section>

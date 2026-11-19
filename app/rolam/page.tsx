@@ -18,7 +18,7 @@ const promises = [
   { t: "Előre megmondom, mire elég", p: "A ±2 cm építészeti tervhez elég, gépészeti illesztéshez nem. Ezt az ajánlatban leírom, nem a munka után derül ki." },
   { t: "Minden pontnak koordinátája van", p: "A pontfelhőt illesztőpontokkal EOV-ba teszem, így a rajz ott ül, ahol a telek és a közmű." },
   { t: "A hiányzó méretért nem megyek ki újra", p: "Ha később kell egy méret, visszakeresem a pontfelhőből. Önnek ez nem kerül újabb kiszállásba." },
-  { t: "Írásban, a munka előtt", p: "Árlista helyett egyedi ajánlatot adok, a felmért terület és a kért rajzok alapján." },
+  { t: "Írásban, a munka előtt", p: "Az árkalkulátor irányárat ad; a végleges árat a felmért terület és a kért rajzok alapján, írásban adom meg." },
 ];
 
 export default function AboutPage() {
@@ -59,8 +59,8 @@ export default function AboutPage() {
         <div className="wrap" data-reveal>
           <h2 id="eszk-h" className="t-xl" data-r style={{ marginBottom: "clamp(32px, 4vw, 56px)" }}>Amivel mérek</h2>
           <ul className="kit">
-            <li data-r style={{ background: "var(--paper)" }}><b>{site.equipment.scanner}</b><span>Kézi SLAM lézerszkenner, 50–100 m hatótáv, menet közben számolja a saját helyét.</span></li>
-            <li data-r style={{ background: "var(--paper)" }}><b>{site.equipment.camera}</b><span>360°-os kamera a szkenneren: a színek és a webes 3D bejárás képei.</span></li>
+            <li data-r style={{ background: "var(--paper)" }}><b>Kézi lézerszkenner</b><span>SLAM lézerszkenner, 50–100 m hatótáv, menet közben számolja a saját helyét.</span></li>
+            <li data-r style={{ background: "var(--paper)" }}><b>360°-os kamera</b><span>A szkennerre szerelve: a színek és a webes 3D bejárás képei.</span></li>
             <li data-r style={{ background: "var(--paper)" }}><b>Illesztőpontok</b><span>Bemért jelek a falon és a terepen, ezek kötik a felmérést az EOV-hoz.</span></li>
             <li data-r style={{ background: "var(--forest)", color: "var(--paper)" }}><b>±2 cm</b><span style={{ color: "var(--on-dark-2)" }}>A pontfelhő pontossága, a bejárt terek minden látható felületén.</span></li>
           </ul>

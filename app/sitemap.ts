@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/mit-kap", 0.8),
     page("/rolam", 0.7),
     page("/gyik", 0.7),
+    page("/arkalkulator", 0.8),
     page("/kapcsolat", 0.8),
     ...cities.map((c) => page(`/lezerszkenneles/${c.slug}`, 0.7)),
   ];
