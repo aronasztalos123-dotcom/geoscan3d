@@ -17,8 +17,10 @@ export function businessSchema() {
     "@type": "ProfessionalService",
     "@id": id,
     name: isSet(site.brand) ? site.brand : "3D lézerszkennelés és épületfelmérés",
+    alternateName: ["Geoscan 3D", site.domain.replace(/^www\./, ""), `${site.brand} földmérés`],
+    // Entitás-leírás AI-asszisztenseknek: ki, mit, hol, egy mondatban.
     description:
-      "Kézi SLAM lézerszkenneres épületfelmérés: As-Built alaprajz, 3D virtuális bejárás, térfogatszámítás, közmű-állapotrögzítés és tetőfelmérés, EOV-ba illesztve.",
+      `A ${site.brand} ${site.owner} földmérő szolgáltatása: kézi SLAM lézerszkenneres épületfelmérés Borsod-Abaúj-Zemplénben és az M3 mentén Budapestig (Miskolc, Eger, Gyöngyös, Hatvan, Gödöllő). As-Built alaprajz, 3D virtuális bejárás, térfogatszámítás, közmű-állapotrögzítés és tetőfelmérés, EOV-ba illesztve.`,
     url: siteUrl,
     image: `${siteUrl}/og.jpg`,
     areaServed: [
@@ -90,6 +92,8 @@ export function websiteSchema() {
     "@id": websiteId,
     url: siteUrl,
     name: site.brand,
+    // A Google ebből választja a találatban megjelenő webhelynevet (a Noble Drinksnél bevált minta).
+    alternateName: [`${site.brand} lézerszkennelés`, "Geoscan 3D", site.domain.replace(/^www\./, "")],
     inLanguage: "hu-HU",
     publisher: { "@id": id },
   };

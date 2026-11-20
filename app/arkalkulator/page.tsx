@@ -6,8 +6,8 @@ import { PriceCalculator } from "@/components/PriceCalculator";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = pageMeta({
-  title: "Árkalkulátor: mennyibe kerül egy lézerszkenneres felmérés?",
-  description: "Számolja ki percek alatt, nagyjából mennyibe kerül az épületfelmérés, a 3D bejárás, a térfogatszámítás, a közmű-állapotrögzítés vagy a tetőfelmérés. Nettó irányár, kiszállással.",
+  title: "Földmérő árak: mennyibe kerül az épületfelmérés?",
+  description: "Földmérő árak percek alatt: mennyibe kerül az épületfelmérés, a 3D bejárás, a térfogatszámítás vagy a tetőfelmérés? Nettó irányár, kiszállással.",
   path: "/arkalkulator",
   image: { url: "/img/scan/pontfelho-kapolna.webp", alt: "Egy kápolna sűrű, színes pontfelhője" },
 });
@@ -17,7 +17,7 @@ export default function PricePage() {
     <>
       <PageHead
         crumbs={[{ name: "Kezdőlap", href: "/" }, { name: "Árkalkulátor" }]}
-        title="Mennyibe kerül?"
+        title="Mennyibe kerül a felmérés?"
         lead="Válassza ki, mit kell felmérni, és mekkora. A kalkulátor nettó irányárat ad; a pontos árat a munka előtt írásban kapja meg."
         image={{ src: "/img/scan/pontfelho-kapolna.webp", alt: "Egy kápolna sűrű, színes pontfelhője" }}
       />

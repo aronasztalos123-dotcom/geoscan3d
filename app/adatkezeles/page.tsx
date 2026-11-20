@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Adatkezelési tájékoztató",
-  description: "Hogyan kezeli az ajánlatkérő űrlapon megadott adatokat a szolgáltató.",
+  description: "Hogyan kezeli a Geoscan3D az ajánlatkérő űrlapon megadott nevet, telefonszámot és e-mail-címet, és meddig őrzi.",
   path: "/adatkezeles",
   noindex: true,
 });

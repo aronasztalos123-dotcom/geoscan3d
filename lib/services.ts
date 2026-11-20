@@ -97,7 +97,7 @@ export const services: Service[] = [
     title: "Böngészőben bejárható, mérhető 3D tér",
     seoTitle: "3D virtuális bejárás és virtuális séta épületről",
     seoDescription:
-      "Fotórealisztikus, mérhető, böngészőben bejárható 3D modell ingatlanról, panzióról, rendezvényhelyszínről, méretarányos alaprajzzal egy csomagban. Kérjen egyedi ajánlatot.",
+      "Fotórealisztikus, mérhető, böngészőben bejárható 3D modell ingatlanról, panzióról, rendezvényhelyszínről, méretarányos alaprajzzal. Kérjen ajánlatot.",
     lead: "Fotórealisztikus, mérhető webes 3D modell és méretarányos alaprajz, egy csomagban.",
     forWhom:
       "Prémium ingatlanirodáknak, ipari és üzleti ingatlanok tulajdonosainak, panzióknak és rendezvényhelyszíneknek.",
@@ -163,7 +163,7 @@ export const services: Service[] = [
     title: "Depónia, halom, raktárkészlet köbméterben",
     seoTitle: "Depónia térfogatszámítás és készletfelmérés",
     seoDescription:
-      "Kavics-, homok- és földdepónia, fedett csarnokban tárolt gabona térfogata m³-ben, havi vagy negyedéves jelentéssel. Ott is mér, ahol a drón nem. Kérjen egyedi ajánlatot.",
+      "Kavics-, homok- és földdepónia, fedett csarnokban tárolt gabona térfogata m³-ben, havi vagy negyedéves jelentéssel. Ott is mér, ahol a drón nem.",
     lead: "Havi vagy negyedéves m³-jelentés depóniáról, bányáról, raktárkészletről.",
     forWhom:
       "Kavics- és homokbányáknak, építőanyag-telepeknek, mezőgazdasági raktáraknak és földdepóniát kezelő cégeknek.",
@@ -229,7 +229,7 @@ export const services: Service[] = [
     title: "Állapotrögzítés építés és visszatemetés előtt",
     seoTitle: "Közmű- és útépítési állapotrögzítés 3D-ben",
     seoDescription:
-      "Építés előtti állapotrögzítés kárigények ellen, nyitott árok és lefektetett vezeték 3D dokumentálása visszatemetés előtt, EOV-ba illesztve. Kérjen egyedi ajánlatot.",
+      "Építés előtti állapotrögzítés kárigények ellen, nyitott árok és lefektetett vezeték 3D dokumentálása visszatemetés előtt, EOV-ban. Kérjen ajánlatot.",
     lead: "Bizonyíték az előtte lévő állapotról, és a vezeték helye a betemetés után is.",
     forWhom: "Mélyépítő cégeknek, önkormányzatoknak és tervezőknek.",
     deliverables: ["EOV-ba illesztett pontfelhő", "Ortofotó-metszet", "Dátummal ellátott dokumentáció", "Árok és vezeték 3D-ben"],
@@ -294,7 +294,7 @@ export const services: Service[] = [
     title: "Tetősíkok, kémények, árnyékoló fák",
     seoTitle: "Tetőfelmérés napelemhez és tetőfedéshez",
     seoDescription:
-      "Tetősíkok mérete és hajlásszöge, kémények és tetőablakok helye, a környező fák magassága az árnyékolás-számításhoz. A földről mérve, létra nélkül. Kérjen egyedi ajánlatot.",
+      "Tetősíkok mérete és hajlásszöge, kémények és tetőablakok helye, a környező fák magassága az árnyékolás-számításhoz. A földről mérve, létra nélkül.",
     lead: "Napelemes kiosztáshoz és tetőfedéshez, a földről mérve.",
     forWhom: "Napelemtelepítőknek és tetőfedőknek.",
     deliverables: ["Tetősíkok mérete és hajlása", "Kémények, tetőablakok helye", "Környező fák magassága", "PDF és DWG"],

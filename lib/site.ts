@@ -9,7 +9,7 @@ export const site = {
   phoneDisplay: "06 70 425 0860",
   phoneHref: "+36704250860",
   email: "info@geoscan3d.hu",
-  domain: "geoscan3d.hu", // https:// nélkül
+  domain: "www.geoscan3d.hu", // https:// nélkül; a geoscan3d.hu 308-cal ide irányít, a kanonikus a www
   logo: "/brand/geoscan3d-logo.svg",
   demoUrl: "[3D DEMÓ LINK]",
   // TODO(ügyfél): székhely, ha nyilvános. Üresen hagyva a schema areaServed alapú marad.

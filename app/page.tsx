@@ -13,7 +13,8 @@ import { figures } from "@/lib/content";
 
 // Kulcsszavak (HU, 2026-11): "földmérő" ~1000/hó, "alaprajz készítés" ~1300/hó, "épületfelmérés", "3d szkennelés".
 export const metadata: Metadata = pageMeta({
-  title: `Földmérő lézerszkennerrel: épületfelmérés, alaprajz | ${site.brand}`,
+  // "földmérő miskolc": a helyi találatokat pontos egyezésű cím viszi. Csak a címben és a sémában szerepel, az oldalon nem.
+  title: `Földmérő Miskolc, épületfelmérés lézerszkennerrel | ${site.brand}`,
   absoluteTitle: true,
   description:
     "Épületfelmérés kézi lézerszkennerrel, földmérőtől. Kész DWG/DXF alaprajz, metszet, 3D bejárás és térfogatszámítás EOV-ban. Miskolc, Eger, Gyöngyös, Hatvan, Budapest.",
