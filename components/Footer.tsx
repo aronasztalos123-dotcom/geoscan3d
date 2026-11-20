@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { ConsentLink } from "./Analytics";
 import { services } from "@/lib/services";
 import { mailHref, nav, site, telHref } from "@/lib/site";
 
@@ -39,7 +40,7 @@ export function Footer() {
         </div>
 
         <div className="foot-legal">
-          <p>© {year} {site.brand}. <Link href="/adatkezeles">Adatkezelés</Link></p>
+          <p>© {year} {site.brand}. <Link href="/adatkezeles">Adatkezelés</Link> · <ConsentLink /></p>
           <p className="foot-credit">Weboldal: AronDigital</p>
         </div>
       </div>

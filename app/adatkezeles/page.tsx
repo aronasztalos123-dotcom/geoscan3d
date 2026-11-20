@@ -36,8 +36,14 @@ export default function Privacy() {
           Kérheti az adatai megismerését, helyesbítését vagy törlését a fenti elérhetőségen. Panaszával a Nemzeti
           Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhat.
         </p>
-        <h2>Sütik</h2>
-        <p>Az oldal nem használ követő vagy hirdetési sütiket.</p>
+        <h2>Sütik és látogatottságmérés</h2>
+        <p>
+          Ha a sütisávon az „Elfogadom” gombot választja, az oldal a Google Analytics (Google Ireland Ltd.) segítségével
+          méri, mely oldalakat nézik meg és honnan érkeznek a látogatók. Ehhez a Google sütiket (_ga, _ga_*) helyez el,
+          legfeljebb 14 hónapig. Hirdetési célú süti nincs. Ha nem fogadja el, a Google Analytics be sem töltődik.
+          A döntését a lábléc „Sütibeállítások” gombjával bármikor megváltoztathatja; a döntést a böngészője helyi
+          tárolójában jegyzem meg.
+        </p>
       </div>
     </section>
   );

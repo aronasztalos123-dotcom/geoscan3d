@@ -12,6 +12,8 @@ export const site = {
   domain: "www.geoscan3d.hu", // https:// nélkül; a geoscan3d.hu 308-cal ide irányít, a kanonikus a www
   logo: "/brand/geoscan3d-logo.svg",
   demoUrl: "[3D DEMÓ LINK]",
+  // Google Analytics 4 mérési azonosító (nyilvános, a böngészőben is látszik). Helykitöltőként a GA ki van kapcsolva.
+  gaId: "G-44DSM38ZG6",
   // TODO(ügyfél): székhely, ha nyilvános. Üresen hagyva a schema areaServed alapú marad.
   address: null as null | { street: string; zip: string; city: string },
   area: "Borsod-Abaúj-Zemplén és az M3 mentén Budapestig",

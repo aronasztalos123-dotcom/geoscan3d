@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCall } from "@/components/MobileCall";
 import { RevealRoot } from "@/components/RevealRoot";
+import { Analytics } from "@/components/Analytics";
 import { JsonLd, businessSchema, personSchema, websiteSchema } from "@/lib/schema";
 import { isProduction, isSet, site, siteUrl } from "@/lib/site";
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <MobileCall />
         <RevealRoot />
+        <Analytics />
         <JsonLd data={businessSchema()} />
         <JsonLd data={websiteSchema()} />
         {isSet(site.owner) ? <JsonLd data={personSchema()} /> : null}

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { software } from "@/lib/content";
 import { services } from "@/lib/services";
 import { isSet, site, telHref } from "@/lib/site";
+import { track } from "./Analytics";
 
 type Status = { kind: "idle" | "sending" | "sent" } | { kind: "fallback"; mailto: string } | { kind: "error"; message: string };
 
@@ -55,6 +56,8 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
     try {
       const res = await fetch("/api/ajanlat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       if (res.ok) {
+        // GA4 ajánlott konverziós esemény; csak hozzájárulás esetén megy ki. Személyes adat nem kerül bele.
+        track("generate_lead", { form: "ajanlatkeres", service: String(data.szolgaltatas ?? "") });
         setStatus({ kind: "sent" });
         form.reset();
         return;
