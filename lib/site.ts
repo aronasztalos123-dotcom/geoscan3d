@@ -8,7 +8,7 @@ export const site = {
   license: "[JOGOSULTSÁGI SZÁM]",
   phoneDisplay: "06 70 425 0860",
   phoneHref: "+36704250860",
-  email: "asztalos69@gmail.com",
+  email: "info@geoscan3d.hu",
   domain: "[DOMAIN]", // pl. geoscan3d.hu, https:// nélkül
   logo: "/brand/geoscan3d-logo.svg",
   demoUrl: "[3D DEMÓ LINK]",

@@ -24,7 +24,7 @@ export default async function ContactPage({ searchParams }: Props) {
         crumbs={[{ name: "Kezdőlap", href: "/" }, { name: "Kapcsolat" }]}
         title="Kérjen ajánlatot"
         lead="Pár mondat elég: mit kell felmérni, hol, és miben nyitja meg. Írásban válaszolok, a munka előtt."
-        image={{ src: "/img/found/mezokovesd-emlekhaz.webp", alt: "Fehérre meszelt, nádtetős régi parasztház Mezőkövesden" }}
+        image={{ src: "/img/found/mezokovesd-emlekhaz.webp", alt: "Fehérre meszelt, nádtetős régi parasztház Mezőkövesden", cap: "Kisjankó Bori emlékház, Mezőkövesd. Fotó: Globetrotter19, CC BY-SA 3.0" }}
       />
       <section className="sec-tight" aria-labelledby="urlap-h">
         <div className="wrap contact-grid">

@@ -900,6 +900,7 @@ p { text-wrap: pretty; }
 .phead-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
 .phead-fig { grid-column: 9 / span 4; margin: 0; }
 .phead-fig .media { aspect-ratio: 4 / 5; background: var(--forest-2); }
+.phead-fig .cap { color: var(--on-dark-2); }
 .crumbs ol { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 14.5px; color: var(--on-dark-2); }
 .crumbs li + li::before { content: "/"; margin-right: 10px; opacity: 0.6; }
 .crumbs a { text-decoration: none; }
@@ -1119,6 +1120,7 @@ p { text-wrap: pretty; }
   font-size: 13.5px; color: var(--on-dark-2);
 }
 .foot-legal a { color: var(--on-dark-2); }
+.foot-credit { margin-left: auto; font-size: 12px; opacity: 0.7; }
 @media (max-width: 899px) { .foot-cols { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 479px) { .foot-cols { grid-template-columns: 1fr; } }
 

@@ -8,7 +8,7 @@ export function PageHead({
   crumbs: { name: string; href?: string }[];
   title: string;
   lead: string;
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; cap?: string };
   children?: React.ReactNode;
 }) {
   return (
@@ -33,6 +33,7 @@ export function PageHead({
             <div className="media">
               <Photo src={image.src} alt={image.alt} width={1200} height={1500} sizes="(max-width: 899px) 92vw, 30vw" priority />
             </div>
+            {image.cap ? <figcaption className="cap">{image.cap}</figcaption> : null}
           </figure>
         ) : null}
       </div>

@@ -3,12 +3,6 @@ import { Logo } from "./Logo";
 import { services } from "@/lib/services";
 import { mailHref, nav, site, telHref } from "@/lib/site";
 
-const credits = [
-  { t: "Borsod vármegye térképe, 1881", by: "Zello", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/w/index.php?curid=75878470" },
-  { t: "Nádtetős ház, Mezőkövesd", by: "Globetrotter19", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/w/index.php?curid=74524654" },
-  { t: "Kisjankó Bori emlékház, Mezőkövesd", by: "Globetrotter19", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/w/index.php?curid=74493994" },
-];
-
 /** Lábléc: három hasáb fent, a logó teljes szélességben lent. */
 export function Footer() {
   const year = new Date().getFullYear();
@@ -46,15 +40,7 @@ export function Footer() {
 
         <div className="foot-legal">
           <p>© {year} {site.brand}. <Link href="/adatkezeles">Adatkezelés</Link></p>
-          <p>
-            Fotók:{" "}
-            {credits.map((c, i) => (
-              <span key={c.url}>
-                <a href={c.url} rel="noopener">{c.t}</a>, {c.by}, {c.lic}{i < credits.length - 1 ? "; " : ". "}
-              </span>
-            ))}
-            A belső fotók illusztrációk. Weboldal: AronDigital
-          </p>
+          <p className="foot-credit">Weboldal: AronDigital</p>
         </div>
       </div>
     </footer>
