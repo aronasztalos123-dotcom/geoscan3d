@@ -68,12 +68,12 @@ export function Analytics() {
     if (!isSet(id)) return;
     const c = read();
     if (c === "granted") loadGa(id);
-    // A sáv a hidratálás utáni első képkockán jelenik meg, hogy ne lassítsa az első rajzolást.
-    const raf = c === null ? requestAnimationFrame(() => setOpen(true)) : 0;
+    // A sáv a hidratálás után jelenik meg. setTimeout, nem requestAnimationFrame: a háttérben megnyitott fül is megkapja.
+    const t = c === null ? window.setTimeout(() => setOpen(true), 0) : 0;
     const reopen = () => setOpen(true);
     window.addEventListener("gs-consent-open", reopen);
     return () => {
-      cancelAnimationFrame(raf);
+      window.clearTimeout(t);
       window.removeEventListener("gs-consent-open", reopen);
     };
   }, [id]);
