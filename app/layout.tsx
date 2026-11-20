@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.brand}`,
   },
   description:
-    "Épületfelmérés kézi lézerszkennerrel, jogosult földmérőtől, Borsodban és az M3 mentén Budapestig. DWG/DXF alaprajz, 3D virtuális bejárás, térfogatszámítás, EOV-ba illesztve.",
+    "Épületfelmérés kézi lézerszkennerrel Borsodban és az M3 mentén Budapestig. DWG/DXF alaprajz, 3D virtuális bejárás, térfogatszámítás, EOV-ba illesztve.",
   applicationName: site.brand,
   openGraph: {
     type: "website",

@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { cities } from "@/lib/cities";
 import { services } from "@/lib/services";
 import { siteUrl } from "@/lib/site";
 
@@ -16,6 +15,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/gyik", 0.7),
     page("/arkalkulator", 0.8),
     page("/kapcsolat", 0.8),
-    ...cities.map((c) => page(`/lezerszkenneles/${c.slug}`, 0.7)),
   ];
 }

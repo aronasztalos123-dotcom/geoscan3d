@@ -5,7 +5,6 @@ import { PageHead } from "@/components/PageHead";
 import { Photo } from "@/components/Photo";
 import { Closing, Faq } from "@/components/Blocks";
 import { ThreeForms } from "@/components/ThreeForms";
-import { cities } from "@/lib/cities";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { serviceBySlug, services } from "@/lib/services";
 import { site, telHref } from "@/lib/site";
@@ -127,10 +126,7 @@ export default async function ServicePage({ params }: Props) {
             <p className="muted" data-r>Borsod-Abaúj-Zemplén és az M3 mentén Budapestig.</p>
           </div>
           <div className="split-r" data-r>
-            <div className="cities">
-              {cities.map((c) => <Link key={c.slug} href={`/lezerszkenneles/${c.slug}`}>{c.name}</Link>)}
-            </div>
-            <p style={{ marginTop: 18 }}>
+            <p>
               <Link href={`/szolgaltatasok/${next.slug}`} className="arrow-link">Következő: {next.name} <span className="ar" aria-hidden="true">→</span></Link>
             </p>
           </div>

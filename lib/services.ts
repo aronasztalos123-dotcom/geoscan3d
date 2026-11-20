@@ -31,7 +31,7 @@ export const services: Service[] = [
     title: "Alaprajz, homlokzat, metszet meglévő épületről",
     seoTitle: "As-Built épületfelmérés, alaprajz készítés lézerszkennerrel",
     seoDescription:
-      "Meglévő épület felmérése kézi lézerszkennerrel, jogosult földmérőtől: DWG/DXF alaprajz, homlokzat és metszet pontfelhőből, EOV-ba illesztve. Kérjen egyedi ajánlatot.",
+      "Meglévő épület felmérése kézi lézerszkennerrel: DWG/DXF alaprajz, homlokzat és metszet pontfelhőből, EOV-ba illesztve. Kérjen egyedi ajánlatot.",
     lead: "Régi házról, csarnokról, műemlékről vagy társasházi lakásról, ahol nincs használható terv.",
     forWhom:
       "Építészeknek, belsőépítészeknek és generálkivitelezőknek, akik régi házat, csarnokot, műemléket vagy olyan társasházi lakást újítanak fel, amelyhez nincs használható terv.",

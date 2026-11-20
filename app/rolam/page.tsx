@@ -4,13 +4,12 @@ import Link from "next/link";
 import { PageHead } from "@/components/PageHead";
 import { Closing } from "@/components/Blocks";
 import { ThreeForms } from "@/components/ThreeForms";
-import { cities } from "@/lib/cities";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `${site.owner}, földmérő`,
-  description: `${site.owner} jogosult földmérő kézi lézerszkennerrel mér Borsod-Abaúj-Zemplénben és az M3 mentén Budapestig. Minden mérésnek koordinátája van.`,
+  description: `${site.owner} földmérő, kézi lézerszkennerrel mér Borsod-Abaúj-Zemplénben és az M3 mentén Budapestig. Minden mérésnek koordinátája van.`,
   alternates: { canonical: "/rolam" },
 };
 
@@ -27,7 +26,7 @@ export default function AboutPage() {
       <PageHead
         crumbs={[{ name: "Kezdőlap", href: "/" }, { name: "Rólam" }]}
         title={`${site.owner}, földmérő`}
-        lead="Jogosult földmérőként dolgozom. Nálam a lézerszkenner mérőműszer, nem látványeszköz."
+        lead="Földmérőként dolgozom. Nálam a lézerszkenner mérőműszer, nem látványeszköz."
         image={{ src: "/img/scan/pontfelho-kapolna.webp", alt: "Egy kápolna sűrű, színes pontfelhője" }}
       >
         <Link href="/kapcsolat" className="btn btn-lime">Ajánlatot kérek <span className="ar" aria-hidden="true">→</span></Link>
@@ -74,9 +73,6 @@ export default function AboutPage() {
           <div className="split-l">
             <h2 id="ter-h" className="t-xl" data-r>Ahol dolgozom</h2>
             <p className="t-lead muted" data-r>{site.area}.</p>
-            <div className="cities" data-r>
-              {cities.map((c) => <Link key={c.slug} href={`/lezerszkenneles/${c.slug}`}>{c.name}</Link>)}
-            </div>
           </div>
           <figure className="split-r" data-r="img">
             <div className="media" style={{ aspectRatio: "4 / 5", background: "var(--forest-2)" }}>

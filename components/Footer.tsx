@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { cities } from "@/lib/cities";
 import { services } from "@/lib/services";
 import { mailHref, nav, site, telHref } from "@/lib/site";
 
@@ -10,7 +9,7 @@ const credits = [
   { t: "Kisjankó Bori emlékház, Mezőkövesd", by: "Globetrotter19", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/w/index.php?curid=74493994" },
 ];
 
-/** Lábléc: négy hasáb fent, a logó teljes szélességben lent. */
+/** Lábléc: három hasáb fent, a logó teljes szélességben lent. */
 export function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -20,7 +19,7 @@ export function Footer() {
           <div>
             <h2>Elérhetőség</h2>
             <p className="strong">{site.owner}</p>
-            <p>jogosult földmérő</p>
+            <p>földmérő</p>
             <ul style={{ marginTop: 14 }}>
               <li><a href={telHref}>{site.phoneDisplay}</a></li>
               <li><a href={mailHref}>{site.email}</a></li>
@@ -37,12 +36,6 @@ export function Footer() {
             <h2 id="f-szolg">Szolgáltatások</h2>
             <ul>
               {services.map((s) => <li key={s.slug}><Link href={`/szolgaltatasok/${s.slug}`}>{s.name}</Link></li>)}
-            </ul>
-          </nav>
-          <nav aria-labelledby="f-hely">
-            <h2 id="f-hely">Ahol dolgozom</h2>
-            <ul>
-              {cities.map((c) => <li key={c.slug}><Link href={`/lezerszkenneles/${c.slug}`}>Lézerszkennelés {c.name}</Link></li>)}
             </ul>
           </nav>
         </div>

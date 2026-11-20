@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ServiceIndex } from "@/components/ServiceIndex";
-import { SoftwarePicker } from "@/components/SoftwarePicker";
 import { Process } from "@/components/home/Process";
+import { Compare } from "@/components/home/Compare";
 import { Accuracy } from "@/components/home/Accuracy";
 import { Request } from "@/components/home/Request";
 import { services } from "@/lib/services";
@@ -49,11 +49,7 @@ export default function Home() {
 
       <Process />
 
-      <section className="sec sec-paper2" aria-labelledby="program-h">
-        <div className="wrap" data-reveal>
-          <SoftwarePicker headingId="program-h" />
-        </div>
-      </section>
+      <Compare />
 
       <Accuracy />
 

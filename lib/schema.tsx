@@ -1,8 +1,10 @@
-import { cities } from "./cities";
 import { services, type Service } from "./services";
 import { isSet, site, siteUrl } from "./site";
 
 const id = `${siteUrl}/#ceg`;
+
+/** A szolgáltatási terület városai (csak a strukturált adathoz). */
+const areaCities = ["Miskolc", "Eger", "Gyöngyös", "Hatvan", "Gödöllő", "Budapest"];
 
 /** LocalBusiness (ProfessionalService), szolgáltatási terület alapon. Helykitöltő mező nem kerül bele. */
 export function businessSchema() {
@@ -12,12 +14,12 @@ export function businessSchema() {
     "@id": id,
     name: isSet(site.brand) ? site.brand : "3D lézerszkennelés és épületfelmérés",
     description:
-      "Kézi SLAM lézerszkenneres épületfelmérés jogosult földmérőtől: As-Built alaprajz, 3D virtuális bejárás, térfogatszámítás, közmű-állapotrögzítés és tetőfelmérés, EOV-ba illesztve.",
+      "Kézi SLAM lézerszkenneres épületfelmérés: As-Built alaprajz, 3D virtuális bejárás, térfogatszámítás, közmű-állapotrögzítés és tetőfelmérés, EOV-ba illesztve.",
     url: siteUrl,
     image: `${siteUrl}/og.jpg`,
     areaServed: [
       { "@type": "AdministrativeArea", name: "Borsod-Abaúj-Zemplén vármegye" },
-      ...cities.map((c) => ({ "@type": "City", name: c.name })),
+      ...areaCities.map((name) => ({ "@type": "City", name })),
     ],
     knowsAbout: ["lézerszkennelés", "pontfelhő", "As-Built felmérés", "EOV", "Gaussian Splatting", "térfogatszámítás"],
     hasOfferCatalog: {
@@ -55,7 +57,7 @@ export function serviceSchema(sv: Service, areaName?: string) {
     provider: { "@id": id },
     areaServed: areaName
       ? { "@type": "City", name: areaName }
-      : cities.map((c) => ({ "@type": "City", name: c.name })),
+      : areaCities.map((name) => ({ "@type": "City", name })),
     url: `${siteUrl}/szolgaltatasok/${sv.slug}`,
   };
 }
