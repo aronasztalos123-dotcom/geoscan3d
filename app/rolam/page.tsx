@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageHead } from "@/components/PageHead";
 import { Closing } from "@/components/Blocks";
 import { ThreeForms } from "@/components/ThreeForms";
+import { AreaMap } from "@/components/AreaMap";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const promises = [
-  { t: "Előre megmondom, mire elég", p: "A ±2 cm építészeti tervhez elég, gépészeti illesztéshez nem. Ezt az ajánlatban leírom, nem a munka után derül ki." },
+  { t: "Előre megmondom, mire elég", p: "Az akár 1 cm-es pontosság építészeti tervhez elég, gépészeti illesztéshez nem. Ezt az ajánlatban leírom, nem a munka után derül ki." },
   { t: "Minden pontnak koordinátája van", p: "A pontfelhőt illesztőpontokkal EOV-ba teszem, így a rajz ott ül, ahol a telek és a közmű." },
   { t: "A hiányzó méretért nem megyek ki újra", p: "Ha később kell egy méret, visszakeresem a pontfelhőből. Önnek ez nem kerül újabb kiszállásba." },
   { t: "Írásban, a munka előtt", p: "Az árkalkulátor irányárat ad; a végleges árat a felmért terület és a kért rajzok alapján, írásban adom meg." },
@@ -61,7 +62,7 @@ export default function AboutPage() {
             <li data-r style={{ background: "var(--paper)" }}><b>Kézi lézerszkenner</b><span>SLAM lézerszkenner, 50–100 m hatótáv, menet közben számolja a saját helyét.</span></li>
             <li data-r style={{ background: "var(--paper)" }}><b>360°-os kamera</b><span>A szkennerre szerelve: a színek és a webes 3D bejárás képei.</span></li>
             <li data-r style={{ background: "var(--paper)" }}><b>Illesztőpontok</b><span>Bemért jelek a falon és a terepen, ezek kötik a felmérést az EOV-hoz.</span></li>
-            <li data-r style={{ background: "var(--forest)", color: "var(--paper)" }}><b>±2 cm</b><span style={{ color: "var(--on-dark-2)" }}>A pontfelhő pontossága, a bejárt terek minden látható felületén.</span></li>
+            <li data-r style={{ background: "var(--forest)", color: "var(--paper)" }}><b>Akár 1 cm</b><span style={{ color: "var(--on-dark-2)" }}>A pontfelhő pontossága, a bejárt terek minden látható felületén.</span></li>
           </ul>
         </div>
       </section>
@@ -75,10 +76,10 @@ export default function AboutPage() {
             <p className="t-lead muted" data-r>{site.area}.</p>
           </div>
           <figure className="split-r" data-r="img">
-            <div className="media" style={{ aspectRatio: "4 / 5", background: "var(--forest-2)" }}>
-              <Image src="/img/found/borsod-1881.webp" alt="Borsod vármegye térképe 1881-ből" fill sizes="(max-width: 899px) 92vw, 46vw" />
+            <div style={{ background: "var(--forest-2)", borderRadius: "var(--r)", padding: "clamp(12px, 2vw, 24px)" }}>
+              <AreaMap />
             </div>
-            <figcaption className="cap">Borsod vármegye térképe, 1881. Zello, CC BY-SA 4.0</figcaption>
+            <figcaption className="cap">Kiszállok a megye egészébe, és az M3 mentén Budapestig. Vázlatos térkép.</figcaption>
           </figure>
         </div>
       </section>

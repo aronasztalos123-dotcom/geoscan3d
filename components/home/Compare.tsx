@@ -9,7 +9,7 @@ const manual: Point[] = [
 
 const scan: Point[] = [
   { b: "20–30 perc a helyszínen:", t: "Egy bonyolult régi ház teljes bejárása. Mérőszalaggal ugyanez 1–2 nap." },
-  { b: "Minden látható felület:", t: "Ferde fal, boltív, eltérő padlószint a valós alakjában, ±2 cm-en belül, mindenhol." },
+  { b: "Minden látható felület:", t: "Ferde fal, boltív, eltérő padlószint a valós alakjában, akár 1 cm-en belül, mindenhol." },
   { b: "Nincs több kiszállás:", t: "Utólag bármelyik méretet, metszetet vagy belmagasságot a pontfelhőből keresem vissza." },
   { b: "EOV koordináták:", t: "A rajz ott ül, ahol a telek, a közmű és a földhivatali térkép." },
 ];

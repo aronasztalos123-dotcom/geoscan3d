@@ -9,7 +9,7 @@ const gcp = [
   { t: "Illesztés és ellenőrzés", p: "A pontfelhőt a bemért pontokra kényszerítem, így a hosszú bejárás csúszása kiesik. Az eltéréseket pontonként ellenőrzöm és átadom." },
 ];
 
-/** A pontosság és a határa: ±2 cm alapból, akár 1 cm illesztőpontokkal; mire elég, és hogyan lesz pontosabb. */
+/** A pontosság és a határa: akár 1 cm illesztőpontokkal, alapból ±2 cm; mire elég, és hogyan lesz pontosabb. */
 export function Accuracy() {
   return (
     <section className="sec acc-sec" aria-labelledby="acc-h">
@@ -17,19 +17,19 @@ export function Accuracy() {
         <div className="acc">
           <div className="acc-fig" data-r>
             <div className="acc-fig-row">
-              <p className="acc-k-dark">Alapfelmérés</p>
-              <p className="acc-big num">±2<span>cm</span></p>
+              <p className="acc-k-dark">Geodéziai illesztőpontokkal</p>
+              <p className="acc-big num"><small>akár</small>1<span>cm</span></p>
             </div>
             <div className="acc-fig-row acc-fig-plus">
-              <p className="acc-k-dark">Geodéziai illesztőpontokkal</p>
-              <p className="acc-mid num">akár 1<span>cm</span></p>
+              <p className="acc-k-dark">Alapfelmérés</p>
+              <p className="acc-mid num">±2<span>cm</span></p>
             </div>
             <p className="acc-sub">Mindenhol a bejárt térben, nem csak néhány lemért ponton.</p>
           </div>
 
           <div className="acc-copy">
             <div className="acc-intro" data-r>
-              <h2 id="acc-h" className="t-l">Mire elég a <span style={{ whiteSpace: "nowrap" }}>±2 cm</span>, és mire nem.</h2>
+              <h2 id="acc-h" className="t-l">Mire elég az <span style={{ whiteSpace: "nowrap" }}>akár 1 cm</span>, és mire nem.</h2>
               <p className="muted">
                 A kézi szkenner menet közben számolja a saját helyét. Egy háznyi bejárásnál ez ±2&nbsp;cm-en belül marad,
                 hosszú, nagy területen viszont lassan elcsúszhat. Ezt fogják meg az illesztőpontok.

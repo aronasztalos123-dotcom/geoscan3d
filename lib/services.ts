@@ -74,7 +74,7 @@ export const services: Service[] = [
         "Átadás DWG/DXF és PDF formátumban, kérésre a pontfelhővel (E57, LAS/LAZ) együtt.",
       ],
       limits:
-        "A pontosság ±2 cm. Építészeti tervhez, belsőépítészethez és koncepciótervhez ez elég. Acélszerkezeti gyártmánytervhez vagy gépészeti illesztéshez, ahol milliméter kell, nem ezt a módszert javaslom, és ezt az ajánlatban előre megmondom.",
+        "A pontosság akár 1 cm (illesztőpontok nélkül ±2 cm). Építészeti tervhez, belsőépítészethez és koncepciótervhez ez elég. Acélszerkezeti gyártmánytervhez vagy gépészeti illesztéshez, ahol milliméter kell, nem ezt a módszert javaslom, és ezt az ajánlatban előre megmondom.",
       faq: [
         {
           q: "Milyen részletességű lesz az alaprajz?",
@@ -140,7 +140,7 @@ export const services: Service[] = [
         "Átadás: webes link, beágyazó kód és PDF/DWG alaprajz.",
       ],
       limits:
-        "A Gaussian Splat modell látványra készül. Műszaki tervezéshez a mellé adott alaprajzot vagy a pontfelhőt használja, ezek ±2 cm pontosak.",
+        "A Gaussian Splat modell látványra készül. Műszaki tervezéshez a mellé adott alaprajzot vagy a pontfelhőt használja, ezek akár 1 cm pontosak.",
       faq: [
         {
           q: "Miben más, mint egy 360°-os fotós séta?",
@@ -206,7 +206,7 @@ export const services: Service[] = [
         "Átadás PDF jelentésben, halmonként és összesen, ismétlésnél az előző időszakhoz képest.",
       ],
       limits:
-        "A felület ±2 cm pontos. A térfogat pontossága ettől és a halom méretétől függ; nagy, lapos halomnál a felületi hiba több köbmétert is jelenthet, ezt a jelentés feltünteti.",
+        "A felület akár 1 cm pontos. A térfogat pontossága ettől és a halom méretétől függ; nagy, lapos halomnál a felületi hiba több köbmétert is jelenthet, ezt a jelentés feltünteti.",
       faq: [
         {
           q: "Milyen gyakran érdemes mérni?",

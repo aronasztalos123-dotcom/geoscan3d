@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "A módszer: kézi lézerszkennelés, pontfelhő, ±2 cm, EOV",
+  title: "A módszer: kézi lézerszkennelés, pontfelhő, akár 1 cm, EOV",
   description:
     "Hogyan lesz egy 20–30 perces bejárásból kész DWG alaprajz: kézi SLAM lézerszkenner, pontfelhő, illesztőpontok, EOV. A pontosság és a határai, őszintén.",
   alternates: { canonical: "/modszer" },
@@ -22,8 +22,8 @@ export default function MethodPage() {
     <>
       <PageHead
         crumbs={[{ name: "Kezdőlap", href: "/" }, { name: "Módszer" }]}
-        title="Bejárás helyett mérőszalag"
-        lead="Kézi lézerszkennerrel sétálok végig az épületen. Ami látható, az a pontfelhőben a helyén van, ±2 cm-en belül."
+        title="Mérőszalag helyett lézerszkenner"
+        lead="Kézi lézerszkennerrel sétálok végig az épületen. Ami látható, az a pontfelhőben a helyén van, akár 1 cm-en belül."
         image={{ src: "/img/scan/pontfelho-fak.webp", alt: "Egy kápolna és a körülötte álló fák pontfelhője sötét háttér előtt" }}
       />
 
@@ -59,7 +59,7 @@ export default function MethodPage() {
       <section id="pontossag" className="sec" aria-labelledby="pont-h">
         <div className="wrap split" data-reveal>
           <div className="split-l split-sticky">
-            <h2 id="pont-h" className="t-xl" data-r>±2 cm, mindenhol</h2>
+            <h2 id="pont-h" className="t-xl" data-r>Akár 1 cm, mindenhol</h2>
             <p className="t-lead muted" data-r>Elég egy tervhez. Nem elég egy acélszerkezet gyártásához, és ezt előre megmondom.</p>
           </div>
           <div className="split-r">

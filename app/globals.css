@@ -752,6 +752,7 @@ p { text-wrap: pretty; }
 }
 .acc-big span, .acc-mid span { font-size: 0.32em; letter-spacing: -0.02em; margin-left: 0.15em; }
 .acc-mid span { color: var(--paper); }
+.acc-big small { font-size: 0.32em; letter-spacing: -0.02em; margin-right: 0.12em; color: var(--lime); }
 .acc-sub { font-size: clamp(16px, 1.2vw, 18px); color: var(--on-dark-2); max-width: 30ch; }
 .acc-copy { grid-column: 7 / span 6; display: grid; gap: clamp(28px, 3vw, 40px); align-content: center; }
 .acc-intro { display: grid; gap: 14px; }

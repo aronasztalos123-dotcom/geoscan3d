@@ -18,7 +18,7 @@ export default function FormatsPage() {
     <>
       <PageHead
         crumbs={[{ name: "Kezdőlap", href: "/" }, { name: "Mit kap" }]}
-        title="Abban kapja, amiben dolgozik"
+        title="Olyan formátum, amiben dolgozik"
         lead="A formátumot az ajánlat előtt egyeztetjük. Itt kipróbálhatja, melyik programhoz mit adok."
         image={{ src: "/img/scan/pontfelho-felulrol.webp", alt: "Egy kápolna pontfelhője felülről, körülötte a fák és az utak" }}
       />
@@ -50,7 +50,7 @@ export default function FormatsPage() {
 
       <NextLinks
         items={[
-          { href: "/modszer", kicker: "Pontosság", title: "A módszer és a ±2 cm" },
+          { href: "/modszer", kicker: "Pontosság", title: "A módszer és az akár 1 cm" },
           { href: "/szolgaltatasok", kicker: "Munkák", title: "Szolgáltatások" },
           { href: "/kapcsolat", kicker: "Ajánlat", title: "Kérjen ajánlatot" },
         ]}

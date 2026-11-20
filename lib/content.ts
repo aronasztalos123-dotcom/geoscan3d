@@ -59,7 +59,7 @@ export const software: { id: SoftwareId; name: string; get: FormatId[]; note: st
 
 export const figures = [
   { value: "20–30 perc", label: "Egy régi családi ház bejárása. Mérőszalaggal ugyanez 1–2 nap." },
-  { value: "±2 cm", label: "Pontosság. Építészeti tervhez, látványhoz és térfogathoz elég." },
+  { value: "akár 1 cm", label: "Pontosság. Építészeti tervhez, látványhoz és térfogathoz elég." },
   { value: "50–100 m", label: "Hatótáv. A csarnok túlsó fala is egy bejárásba fér." },
 ];
 
@@ -88,7 +88,7 @@ export const comparison: { row: string; manual: string; scan: string }[] = [
   {
     row: "Egy-egy távolság pontossága",
     manual: "Milliméteres, a mért pontokon",
-    scan: "±2 cm, de mindenhol",
+    scan: "akár 1 cm, mindenhol",
   },
   {
     row: "Koordináta-rendszer",
@@ -128,7 +128,7 @@ export const faq: { q: string; a: string }[] = [
   },
   {
     q: "Mennyire pontos a felmérés?",
-    a: "±2 cm. Ez építészeti tervhez, belsőépítészethez, látványtervhez, térfogatszámításhoz és koncepciótervhez elég. Acélszerkezeti gyártmánytervhez vagy gépészeti illesztéshez, ahol milliméter kell, nem ezt a módszert javaslom.",
+    a: "Akár 1 cm geodéziai illesztőpontokkal, alapból ±2 cm. Ez építészeti tervhez, belsőépítészethez, látványtervhez, térfogatszámításhoz és koncepciótervhez elég. Acélszerkezeti gyártmánytervhez vagy gépészeti illesztéshez, ahol milliméter kell, nem ezt a módszert javaslom.",
   },
   {
     q: "Mennyi idő, amíg megkapom a rajzot?",
@@ -188,7 +188,7 @@ export const slips: { id: string; formats: FormatId[]; file: string; lines: stri
     id: "e57",
     formats: ["e57"],
     file: "pontfelho.e57",
-    lines: ["ArchiCAD: közvetlenül", "Revit: ReCap-pel", "AutoCAD: ReCap-pel", "EOV koordinátákkal", "±2 cm"],
+    lines: ["ArchiCAD: közvetlenül", "Revit: ReCap-pel", "AutoCAD: ReCap-pel", "EOV koordinátákkal", "akár 1 cm"],
   },
   {
     id: "las",
