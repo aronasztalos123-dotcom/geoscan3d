@@ -2,9 +2,13 @@ import { services, type Service } from "./services";
 import { isSet, site, siteUrl } from "./site";
 
 const id = `${siteUrl}/#ceg`;
+const personId = `${siteUrl}/#foldmero`;
+const websiteId = `${siteUrl}/#weboldal`;
+const abs = (p: string) => (p.startsWith("http") ? p : `${siteUrl}${p}`);
 
 /** A szolgáltatási terület városai (csak a strukturált adathoz). */
 const areaCities = ["Miskolc", "Eger", "Gyöngyös", "Hatvan", "Gödöllő", "Budapest"];
+const areaRegions = ["Borsod-Abaúj-Zemplén vármegye", "Heves vármegye", "Pest vármegye"];
 
 /** LocalBusiness (ProfessionalService), szolgáltatási terület alapon. Helykitöltő mező nem kerül bele. */
 export function businessSchema() {
@@ -18,10 +22,16 @@ export function businessSchema() {
     url: siteUrl,
     image: `${siteUrl}/og.jpg`,
     areaServed: [
-      { "@type": "AdministrativeArea", name: "Borsod-Abaúj-Zemplén vármegye" },
+      ...areaRegions.map((name) => ({ "@type": "AdministrativeArea", name })),
       ...areaCities.map((name) => ({ "@type": "City", name })),
     ],
-    knowsAbout: ["lézerszkennelés", "pontfelhő", "As-Built felmérés", "EOV", "Gaussian Splatting", "térfogatszámítás"],
+    knowsLanguage: "hu",
+    currenciesAccepted: "HUF",
+    knowsAbout: [
+      "lézerszkennelés", "3D szkennelés", "épületfelmérés", "alaprajz készítés", "pontfelhő", "As-Built felmérés",
+      "EOV", "földmérés", "Gaussian Splatting", "térfogatszámítás", "tetőfelmérés",
+    ],
+    slogan: "Egy bejárás, és kész a rajz.",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Szolgáltatások",
@@ -33,8 +43,18 @@ export function businessSchema() {
   };
   if (isSet(site.phoneHref)) s.telephone = site.phoneHref;
   if (isSet(site.email)) s.email = site.email;
-  if (isSet(site.logo)) s.logo = site.logo;
-  if (isSet(site.owner)) s.founder = { "@type": "Person", name: site.owner, jobTitle: "Földmérő" };
+  if (isSet(site.logo)) s.logo = { "@type": "ImageObject", url: abs(site.logo) };
+  if (isSet(site.phoneHref) || isSet(site.email)) {
+    s.contactPoint = {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: "hu",
+      areaServed: "HU",
+      ...(isSet(site.phoneHref) ? { telephone: site.phoneHref } : {}),
+      ...(isSet(site.email) ? { email: site.email } : {}),
+    };
+  }
+  if (isSet(site.owner)) s.founder = { "@id": personId };
   if (site.address) {
     s.address = {
       "@type": "PostalAddress",
@@ -47,13 +67,53 @@ export function businessSchema() {
   return s;
 }
 
+/** A földmérő mint személy; a /rolam oldal és a cég founder mezője erre hivatkozik. */
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": personId,
+    name: site.owner,
+    jobTitle: "Földmérő",
+    hasOccupation: { "@type": "Occupation", name: "Földmérő", occupationLocation: { "@type": "Country", name: "Magyarország" } },
+    worksFor: { "@id": id },
+    url: `${siteUrl}/rolam`,
+    knowsAbout: ["földmérés", "lézerszkennelés", "EOV", "épületfelmérés"],
+    ...(isSet(site.license) ? { identifier: site.license } : {}),
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: siteUrl,
+    name: site.brand,
+    inLanguage: "hu-HU",
+    publisher: { "@id": id },
+  };
+}
+
 export function serviceSchema(sv: Service, areaName?: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${siteUrl}/szolgaltatasok/${sv.slug}#szolgaltatas`,
     name: sv.name,
     serviceType: sv.name,
+    alternateName: sv.seoTitle,
     description: sv.seoDescription,
+    image: abs(sv.image.src),
+    category: "Földmérés, épületfelmérés",
+    audience: { "@type": "Audience", audienceType: sv.forWhom },
+    offers: {
+      "@type": "Offer",
+      url: `${siteUrl}/kapcsolat?szolgaltatas=${sv.slug}`,
+      priceCurrency: "HUF",
+      availability: "https://schema.org/InStock",
+      description: "Egyedi, írásos ajánlat a munka előtt.",
+    },
     provider: { "@id": id },
     areaServed: areaName
       ? { "@type": "City", name: areaName }

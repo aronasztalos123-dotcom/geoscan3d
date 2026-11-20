@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHead } from "@/components/PageHead";
 import { Closing, NextLinks } from "@/components/Blocks";
 import { PriceCalculator } from "@/components/PriceCalculator";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Árkalkulátor: mennyibe kerül egy lézerszkenneres felmérés?",
-  description:
-    "Számolja ki percek alatt, nagyjából mennyibe kerül az épületfelmérés, a 3D bejárás, a térfogatszámítás, a közmű-állapotrögzítés vagy a tetőfelmérés. Nettó irányár, kiszállással.",
-  alternates: { canonical: "/arkalkulator" },
-};
+  description: "Számolja ki percek alatt, nagyjából mennyibe kerül az épületfelmérés, a 3D bejárás, a térfogatszámítás, a közmű-állapotrögzítés vagy a tetőfelmérés. Nettó irányár, kiszállással.",
+  path: "/arkalkulator",
+  image: { url: "/img/scan/pontfelho-kapolna.webp", alt: "Egy kápolna sűrű, színes pontfelhője" },
+});
 
 export default function PricePage() {
   return (

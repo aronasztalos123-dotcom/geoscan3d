@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { PageHead } from "@/components/PageHead";
 import { Verbs } from "@/components/Verbs";
@@ -7,12 +8,12 @@ import { accuracy, comparison, faq } from "@/lib/content";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "A módszer: kézi lézerszkennelés, pontfelhő, akár 1 cm, EOV",
-  description:
-    "Hogyan lesz egy 20–30 perces bejárásból kész DWG alaprajz: kézi SLAM lézerszkenner, pontfelhő, illesztőpontok, EOV. A pontosság és a határai, őszintén.",
-  alternates: { canonical: "/modszer" },
-};
+export const metadata: Metadata = pageMeta({
+  title: "Módszer: kézi lézerszkennelés, pontfelhő, EOV",
+  description: "Hogyan lesz egy 20–30 perces bejárásból kész DWG alaprajz: kézi SLAM lézerszkenner, pontfelhő, illesztőpontok, EOV. A pontosság és a határai, őszintén.",
+  path: "/modszer",
+  image: { url: "/img/scan/pontfelho-fak.webp", alt: "Egy kápolna és a körülötte álló fák pontfelhője" },
+});
 
 const eov = faq.find((f) => f.q.includes("EOV"))!;
 const slam = faq.find((f) => f.q.includes("hosszú"))!;

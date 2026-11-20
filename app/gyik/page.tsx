@@ -4,12 +4,15 @@ import { Closing, Faq, NextLinks } from "@/components/Blocks";
 import { faq } from "@/lib/content";
 import { ThreeForms } from "@/components/ThreeForms";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Gyakori kérdések a lézerszkennelésről",
-  description: "Formátum, pontosság, határidő, előkészítés, ár, EOV, SLAM és a drónos felmérés: rövid, őszinte válaszok.",
-  alternates: { canonical: "/gyik" },
-};
+export const metadata: Metadata = pageMeta({
+  title: "GYIK: lézerszkenneres épületfelmérés",
+  description:
+    "Formátum, pontosság, határidő, előkészítés, ár, EOV, SLAM és a drónos felmérés: rövid, őszinte válaszok egy földmérőtől.",
+  path: "/gyik",
+  image: { url: "/img/illesztopont.webp", alt: "Fekete-fehér illesztőpont-jel egy régi vakolt falon" },
+});
 
 export default function FaqPage() {
   return (

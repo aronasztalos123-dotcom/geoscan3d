@@ -8,6 +8,7 @@ import { ThreeForms } from "@/components/ThreeForms";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { serviceBySlug, services } from "@/lib/services";
 import { site, telHref } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -21,12 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const s = serviceBySlug(slug);
   if (!s) return {};
-  return {
+  return pageMeta({
     title: s.seoTitle,
     description: s.seoDescription,
-    alternates: { canonical: `/szolgaltatasok/${s.slug}` },
-    openGraph: { title: s.seoTitle, description: s.seoDescription, url: `/szolgaltatasok/${s.slug}`, images: [{ url: s.image.src }] },
-  };
+    path: `/szolgaltatasok/${s.slug}`,
+    image: { url: s.image.src, alt: s.image.alt },
+  });
 }
 
 export default async function ServicePage({ params }: Props) {

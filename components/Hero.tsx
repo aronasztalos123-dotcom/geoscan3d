@@ -45,7 +45,7 @@ export function Hero() {
 
       <div className="hero-center">
         <h1 id="hero-h" className="hero-title">
-          <span className="sr-only">{site.brand}: 3D lézerszkennelés és épületfelmérés</span>
+          <span className="sr-only">{site.brand}: épületfelmérés és 3D lézerszkennelés földmérőtől</span>
           <Logo tone="dark" />
         </h1>
         <p className="hero-sub">Épületfelmérés lézerszkennerrel: kész alaprajz, metszet és 3D bejárás.</p>

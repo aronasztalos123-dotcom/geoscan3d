@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { isSet, site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Adatkezelési tájékoztató",
   description: "Hogyan kezeli az ajánlatkérő űrlapon megadott adatokat a szolgáltató.",
-  alternates: { canonical: "/adatkezeles" },
-  robots: { index: false },
-};
+  path: "/adatkezeles",
+  noindex: true,
+});
 
 // TODO(ügyfél): jogász által ellenőrzött, végleges tájékoztató. Ez a vázlat csak a tényleges adatkezelést írja le.
 export default function Privacy() {

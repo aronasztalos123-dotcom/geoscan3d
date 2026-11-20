@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHead } from "@/components/PageHead";
 import { SoftwarePicker } from "@/components/SoftwarePicker";
 import { Closing, NextLinks } from "@/components/Blocks";
@@ -6,12 +7,12 @@ import { formats } from "@/lib/content";
 import { ThreeForms } from "@/components/ThreeForms";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Mit kap kézhez: DWG, DXF, PDF, E57, LAS, webes 3D",
-  description:
-    "Rétegezett DWG/DXF rajz, PDF alaprajz, ortofotó-metszet, webes 3D link és nyers pontfelhő (E57, LAS, LAZ). AutoCAD, ArchiCAD, Revit, QGIS: melyikhez mit adok.",
-  alternates: { canonical: "/mit-kap" },
-};
+  description: "Rétegezett DWG/DXF rajz, PDF alaprajz, ortofotó-metszet, webes 3D link és nyers pontfelhő (E57, LAS, LAZ). AutoCAD, ArchiCAD, Revit, QGIS: melyikhez mit adok.",
+  path: "/mit-kap",
+  image: { url: "/img/scan/pontfelho-felulrol.webp", alt: "Egy kápolna pontfelhője felülről" },
+});
 
 export default function FormatsPage() {
   return (

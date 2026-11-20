@@ -9,7 +9,7 @@ export const site = {
   phoneDisplay: "06 70 425 0860",
   phoneHref: "+36704250860",
   email: "info@geoscan3d.hu",
-  domain: "[DOMAIN]", // pl. geoscan3d.hu, https:// nélkül
+  domain: "geoscan3d.hu", // https:// nélkül
   logo: "/brand/geoscan3d-logo.svg",
   demoUrl: "[3D DEMÓ LINK]",
   // TODO(ügyfél): székhely, ha nyilvános. Üresen hagyva a schema areaServed alapú marad.
@@ -38,3 +38,9 @@ export const nav = [
   { href: "/gyik", label: "GYIK" },
   { href: "/arkalkulator", label: "Árkalkulátor" },
 ];
+
+/**
+ * Csak az éles telepítés indexelhető. Vercel preview/development URL-ek noindexet kapnak,
+ * hogy ne versenyezzenek a geoscan3d.hu-val a találatokban.
+ */
+export const isProduction = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : process.env.NODE_ENV === "production";

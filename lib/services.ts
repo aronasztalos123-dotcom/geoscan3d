@@ -29,7 +29,7 @@ export const services: Service[] = [
     slug: "as-built-felmeres",
     name: "As-Built felmérés",
     title: "Alaprajz, homlokzat, metszet meglévő épületről",
-    seoTitle: "As-Built épületfelmérés, alaprajz készítés lézerszkennerrel",
+    seoTitle: "As-Built épületfelmérés, alaprajz készítés",
     seoDescription:
       "Meglévő épület felmérése kézi lézerszkennerrel: DWG/DXF alaprajz, homlokzat és metszet pontfelhőből, EOV-ba illesztve. Kérjen egyedi ajánlatot.",
     lead: "Régi házról, csarnokról, műemlékről vagy társasházi lakásról, ahol nincs használható terv.",
@@ -95,7 +95,7 @@ export const services: Service[] = [
     slug: "3d-virtualis-bejaras",
     name: "3D virtuális bejárás",
     title: "Böngészőben bejárható, mérhető 3D tér",
-    seoTitle: "3D virtuális bejárás (virtuális séta) Gaussian Splattinggel",
+    seoTitle: "3D virtuális bejárás és virtuális séta épületről",
     seoDescription:
       "Fotórealisztikus, mérhető, böngészőben bejárható 3D modell ingatlanról, panzióról, rendezvényhelyszínről, méretarányos alaprajzzal egy csomagban. Kérjen egyedi ajánlatot.",
     lead: "Fotórealisztikus, mérhető webes 3D modell és méretarányos alaprajz, egy csomagban.",
@@ -161,7 +161,7 @@ export const services: Service[] = [
     slug: "terfogatszamitas",
     name: "Térfogatszámítás",
     title: "Depónia, halom, raktárkészlet köbméterben",
-    seoTitle: "Depónia térfogatszámítás és készletfelmérés lézerszkennerrel",
+    seoTitle: "Depónia térfogatszámítás és készletfelmérés",
     seoDescription:
       "Kavics-, homok- és földdepónia, fedett csarnokban tárolt gabona térfogata m³-ben, havi vagy negyedéves jelentéssel. Ott is mér, ahol a drón nem. Kérjen egyedi ajánlatot.",
     lead: "Havi vagy negyedéves m³-jelentés depóniáról, bányáról, raktárkészletről.",
@@ -227,7 +227,7 @@ export const services: Service[] = [
     slug: "kozmu-allapotrogzites",
     name: "Közmű- és útépítési állapotrögzítés",
     title: "Állapotrögzítés építés és visszatemetés előtt",
-    seoTitle: "Közmű- és útépítési állapotrögzítés 3D-ben, EOV-ban",
+    seoTitle: "Közmű- és útépítési állapotrögzítés 3D-ben",
     seoDescription:
       "Építés előtti állapotrögzítés kárigények ellen, nyitott árok és lefektetett vezeték 3D dokumentálása visszatemetés előtt, EOV-ba illesztve. Kérjen egyedi ajánlatot.",
     lead: "Bizonyíték az előtte lévő állapotról, és a vezeték helye a betemetés után is.",
@@ -292,7 +292,7 @@ export const services: Service[] = [
     slug: "tetofelmeres",
     name: "Tetőfelmérés",
     title: "Tetősíkok, kémények, árnyékoló fák",
-    seoTitle: "Tetőfelmérés napelemhez és tetőfedéshez, létra nélkül",
+    seoTitle: "Tetőfelmérés napelemhez és tetőfedéshez",
     seoDescription:
       "Tetősíkok mérete és hajlásszöge, kémények és tetőablakok helye, a környező fák magassága az árnyékolás-számításhoz. A földről mérve, létra nélkül. Kérjen egyedi ajánlatot.",
     lead: "Napelemes kiosztáshoz és tetőfedéshez, a földről mérve.",

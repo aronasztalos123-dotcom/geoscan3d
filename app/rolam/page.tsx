@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/PageHead";
@@ -8,11 +9,11 @@ import { AreaMap } from "@/components/AreaMap";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: `${site.owner}, földmérő`,
   description: `${site.owner} földmérő, kézi lézerszkennerrel mér Borsod-Abaúj-Zemplénben és az M3 mentén Budapestig. Minden mérésnek koordinátája van.`,
-  alternates: { canonical: "/rolam" },
-};
+  path: "/rolam",
+});
 
 const promises = [
   { t: "Előre megmondom, mire elég", p: "Az akár 1 cm-es pontosság építészeti tervhez elég, gépészeti illesztéshez nem. Ezt az ajánlatban leírom, nem a munka után derül ki." },

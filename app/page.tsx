@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
+import { site } from "@/lib/site";
 import { Hero } from "@/components/Hero";
 import { ServiceIndex } from "@/components/ServiceIndex";
 import { Process } from "@/components/home/Process";
@@ -7,6 +10,15 @@ import { Accuracy } from "@/components/home/Accuracy";
 import { Request } from "@/components/home/Request";
 import { services } from "@/lib/services";
 import { figures } from "@/lib/content";
+
+// Kulcsszavak (HU, 2026-11): "földmérő" ~1000/hó, "alaprajz készítés" ~1300/hó, "épületfelmérés", "3d szkennelés".
+export const metadata: Metadata = pageMeta({
+  title: `Földmérő lézerszkennerrel: épületfelmérés, alaprajz | ${site.brand}`,
+  absoluteTitle: true,
+  description:
+    "Épületfelmérés kézi lézerszkennerrel, földmérőtől. Kész DWG/DXF alaprajz, metszet, 3D bejárás és térfogatszámítás EOV-ban. Miskolc, Eger, Gyöngyös, Hatvan, Budapest.",
+  path: "/",
+});
 
 /** Kezdőlap: rövid. Minden részlet a saját aloldalán él, innen csak egy-egy ajtó nyílik oda. */
 export default function Home() {

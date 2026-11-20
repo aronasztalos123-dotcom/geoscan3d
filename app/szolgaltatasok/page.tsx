@@ -4,13 +4,15 @@ import { ServiceIndex } from "@/components/ServiceIndex";
 import { Closing, NextLinks } from "@/components/Blocks";
 import { services } from "@/lib/services";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Szolgáltatások: As-Built felmérés, 3D bejárás, térfogat, tetőfelmérés",
+export const metadata: Metadata = pageMeta({
+  title: "Szolgáltatások: épületfelmérés, 3D bejárás, térfogat",
   description:
     "Öt munka, egy módszer: kézi lézerszkenneres As-Built felmérés, 3D virtuális bejárás, depónia-térfogat, közmű-állapotrögzítés és tetőfelmérés, EOV-ba illesztve.",
-  alternates: { canonical: "/szolgaltatasok" },
-};
+  path: "/szolgaltatasok",
+  image: { url: "/img/scan/pontfelho-apszis.webp", alt: "Egy kápolna íves apszisa pontfelhőként" },
+});
 
 export default function ServicesPage() {
   const items = services.map((s) => ({ slug: s.slug, name: s.name, lead: s.lead, image: s.image }));

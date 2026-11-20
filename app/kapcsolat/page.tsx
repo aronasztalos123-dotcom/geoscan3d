@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHead } from "@/components/PageHead";
 import { QuoteForm } from "@/components/QuoteForm";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
@@ -6,11 +7,11 @@ import { serviceBySlug } from "@/lib/services";
 import { software } from "@/lib/content";
 import { mailHref, site, telHref } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Kapcsolat és ajánlatkérés",
   description: `Kérjen írásos ajánlatot lézerszkenneres felmérésre. ${site.owner}, ${site.phoneDisplay}, ${site.email}.`,
-  alternates: { canonical: "/kapcsolat" },
-};
+  path: "/kapcsolat",
+});
 
 type Props = { searchParams: Promise<{ szolgaltatas?: string; program?: string; becsles?: string }> };
 
