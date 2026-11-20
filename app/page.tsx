@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ServiceIndex } from "@/components/ServiceIndex";
-import { Verbs } from "@/components/Verbs";
 import { SoftwarePicker } from "@/components/SoftwarePicker";
-import { Closing, Marquee } from "@/components/Blocks";
+import { Process } from "@/components/home/Process";
+import { Accuracy } from "@/components/home/Accuracy";
+import { Request } from "@/components/home/Request";
 import { services } from "@/lib/services";
 import { figures } from "@/lib/content";
 
@@ -46,38 +47,17 @@ export default function Home() {
         </div>
       </section>
 
-      <Marquee words={["Pontfelhőből kész rajz", "±2 cm mindenhol", "EOV koordinátákkal", "Kiszállás nélküli utólagos méret"]} />
+      <Process />
 
-      <Verbs
-        label="A munka három lépésben"
-        items={[
-          {
-            word: "Bejárás",
-            text: "Egy régi családi ház 20–30 perc. Mérőszalaggal ugyanez 1–2 nap.",
-            img: { src: "/img/scan/kapolna-foto.webp", alt: "Egy kis barokk kápolna oldalfala és ablaka napsütésben, kopasz fák között" },
-          },
-          {
-            word: "Pontfelhő",
-            text: "Minden látható felület milliónyi mért pontként, a helyén.",
-            img: { src: "/img/scan/pontfelho-kapolna.webp", alt: "Ugyanannak a kápolnának a sűrű, színes pontfelhője a környező fákkal" },
-          },
-          {
-            word: "Rajz",
-            text: "DWG, PDF, E57 vagy webes 3D link. Abban, amiben Ön dolgozik.",
-            img: { src: "/img/alaprajz.webp", alt: "Pontfelhőből rajzolt, méretezett alaprajz egy mintaházról" },
-            cap: "Szemléltetés: mintaház alaprajza",
-            tone: "light",
-          },
-        ]}
-      />
-
-      <section className="sec" aria-labelledby="program-h">
+      <section className="sec sec-paper2" aria-labelledby="program-h">
         <div className="wrap" data-reveal>
           <SoftwarePicker headingId="program-h" />
         </div>
       </section>
 
-      <Closing />
+      <Accuracy />
+
+      <Request />
     </>
   );
 }
