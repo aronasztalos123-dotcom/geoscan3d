@@ -1249,7 +1249,9 @@ p { text-wrap: pretty; }
 .consent h2 { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
 .consent p { font-size: 15px; line-height: 1.5; color: var(--on-dark-2); margin: 0; }
 .consent a { color: var(--on-dark); }
-.consent-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.consent { grid-template-columns: minmax(0, 1fr); }
+.consent-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 479px) { .consent-actions { grid-template-columns: minmax(0, 1fr); } }
 .consent-link {
   background: none; border: 0; padding: 0; font: inherit; color: inherit;
   text-decoration: underline; text-underline-offset: 3px; cursor: pointer;

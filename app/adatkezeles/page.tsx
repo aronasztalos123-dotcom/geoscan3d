@@ -28,7 +28,7 @@ export default function Privacy() {
         <p>30 nap. Ha nem jön létre megbízás, az adatokat ennyi idő után törlöm.</p>
         <h2>Kinek adom át</h2>
         <p>
-          Senkinek. Az űrlap üzenete e-mailben érkezik; a levélküldést a Resend (Resend, Inc.) szolgáltatás végzi, a
+          Senkinek. Az űrlap üzenete e-mailben érkezik; a levelezést a Forpsi tárhelyszolgáltató végzi, a
           weboldalt a Vercel (Vercel Inc.) üzemelteti.
         </p>
         <h2>Az Ön jogai</h2>
@@ -36,13 +36,18 @@ export default function Privacy() {
           Kérheti az adatai megismerését, helyesbítését vagy törlését a fenti elérhetőségen. Panaszával a Nemzeti
           Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhat.
         </p>
-        <h2>Sütik és látogatottságmérés</h2>
+        <h2 id="sutik">Sütik</h2>
         <p>
-          Ha a sütisávon az „Elfogadom” gombot választja, az oldal a Google Analytics (Google Ireland Ltd.) segítségével
-          méri, mely oldalakat nézik meg és honnan érkeznek a látogatók. Ehhez a Google sütiket (_ga, _ga_*) helyez el,
-          legfeljebb 14 hónapig. Hirdetési célú süti nincs. Ha nem fogadja el, a Google Analytics be sem töltődik.
-          A döntését a lábléc „Sütibeállítások” gombjával bármikor megváltoztathatja; a döntést a böngészője helyi
-          tárolójában jegyzem meg.
+          Az oldal működéséhez nem kell süti. Sütit csak akkor használok, ha a sütisávon az „Elfogadom a sütiket”
+          gombot választja. Ezek a sütik a következők:
+        </p>
+        <p>
+          <strong>Statisztikai sütik: Google Analytics</strong> (Google Ireland Ltd.). Azt mérik, mely oldalakat nézik
+          meg és honnan érkeznek a látogatók. Sütik: _ga, _ga_*, legfeljebb 14 hónapig. Hirdetési célú süti nincs.
+        </p>
+        <p>
+          Ha a sütiket elutasítja, a Google Analytics be sem töltődik. A döntését a lábléc „Sütibeállítások” gombjával
+          bármikor megváltoztathatja; a döntést a böngészője helyi tárolójában jegyzem meg.
         </p>
       </div>
     </section>

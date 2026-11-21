@@ -93,15 +93,14 @@ export function Analytics() {
   return (
     <div className="consent" role="dialog" aria-labelledby="consent-h" aria-describedby="consent-p">
       <div className="consent-text">
-        <h2 id="consent-h">Látogatottság mérése</h2>
+        <h2 id="consent-h">Sütik ezen az oldalon</h2>
         <p id="consent-p">
-          Google Analytics-szel mérném, melyik oldalt olvassák, hogy jobbá tegyem az oldalt. Hirdetési célra nem használom.
-          Részletek: <Link href="/adatkezeles">adatkezelés</Link>.
+          Az oldal sütiket használ. Elfogadja a sütiket? Részletek a <Link href="/adatkezeles#sutik">sütiszabályzatban</Link>.
         </p>
       </div>
       <div className="consent-actions">
-        <button type="button" className="btn btn-sm btn-paper" onClick={() => decide("denied")}>Elutasítom</button>
-        <button type="button" className="btn btn-sm btn-paper" onClick={() => decide("granted")}>Elfogadom</button>
+        <button type="button" className="btn btn-sm btn-paper" onClick={() => decide("denied")}>Elutasítom a sütiket</button>
+        <button type="button" className="btn btn-sm btn-paper" onClick={() => decide("granted")}>Elfogadom a sütiket</button>
       </div>
     </div>
   );
