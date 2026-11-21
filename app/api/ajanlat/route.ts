@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { isValidPhone } from "@/lib/phone";
 
 /**
  * Ajánlatkérés fogadása. Környezeti változók (Vercel: Project Settings → Environment Variables):
@@ -35,8 +36,11 @@ export async function POST(req: Request) {
     uzenet: String(body.uzenet ?? "").slice(0, MAX),
   };
 
-  if (!d.nev || (!d.telefon && !d.email) || !d.szolgaltatas || !d.helyszin) {
-    return NextResponse.json({ ok: false, message: "Hiányzó adat: név, elérhetőség, szolgáltatás és helyszín kell." }, { status: 422 });
+  if (!d.nev || !d.telefon || !d.szolgaltatas || !d.helyszin) {
+    return NextResponse.json({ ok: false, message: "Hiányzó adat: név, telefonszám, szolgáltatás és helyszín kell." }, { status: 422 });
+  }
+  if (!isValidPhone(d.telefon)) {
+    return NextResponse.json({ ok: false, message: "A telefonszám formátuma nem jó." }, { status: 422 });
   }
   if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) {
     return NextResponse.json({ ok: false, message: "Az e-mail-cím formátuma nem jó." }, { status: 422 });

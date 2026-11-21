@@ -5,7 +5,15 @@ import { useEffect, useRef, useState } from "react";
 import { software } from "@/lib/content";
 import { services } from "@/lib/services";
 import { isSet, site, telHref } from "@/lib/site";
+import { isValidPhone, sanitizePhone } from "@/lib/phone";
 import { track } from "./Analytics";
+
+const phoneError = (raw: string) => {
+  const tel = raw.trim();
+  if (!tel) return "Adja meg a telefonszámát, hogy vissza tudjam hívni.";
+  if (!isValidPhone(tel)) return "Ez nem szabályos telefonszám. Például: +36 30 123 4567 vagy 06 1 234 5678.";
+  return "";
+};
 
 type Status = { kind: "idle" | "sending" | "sent" } | { kind: "fallback"; mailto: string } | { kind: "error"; message: string };
 
@@ -30,10 +38,9 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
   const validate = (fd: FormData) => {
     const e: Record<string, string> = {};
     if (!String(fd.get("nev") ?? "").trim()) e.nev = "Adja meg a nevét.";
-    const tel = String(fd.get("telefon") ?? "").trim();
+    const telErr = phoneError(String(fd.get("telefon") ?? ""));
+    if (telErr) e.telefon = telErr;
     const mail = String(fd.get("email") ?? "").trim();
-    if (!tel && !mail) e.telefon = "Adjon meg telefonszámot vagy e-mail-címet, hogy vissza tudjam hívni.";
-    if (tel && !/^[+\d][\d\s/()-]{6,}$/.test(tel)) e.telefon = "Ellenőrizze a telefonszámot, például +36 30 123 4567.";
     if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) e.email = "Ellenőrizze az e-mail-címet, például nev@example.hu.";
     if (!String(fd.get("szolgaltatas") ?? "")) e.szolgaltatas = "Válassza ki, mit kell felmérni.";
     if (!String(fd.get("helyszin") ?? "").trim()) e.helyszin = "Adja meg a települést.";
@@ -87,17 +94,47 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
       <span id={`${k}-err`} className="field-err">{errors[k]}</span>
     ) : null;
   const describedBy = (k: string, hint?: string) => [errors[k] ? `${k}-err` : "", hint ?? ""].filter(Boolean).join(" ") || undefined;
+  const setFieldError = (k: string, msg: string) =>
+    setErrors((prev) => {
+      if ((prev[k] ?? "") === msg) return prev;
+      const next = { ...prev };
+      if (msg) next[k] = msg;
+      else delete next[k];
+      return next;
+    });
+  const req = <span className="req" aria-hidden="true">*</span>;
 
   return (
     <form ref={formRef} className="qform" noValidate onSubmit={onSubmit} aria-label="Ajánlatkérés">
       <div className="field">
-        <label htmlFor="f-nev">Név</label>
+        <label htmlFor="f-nev">Név {req}</label>
         <input id="f-nev" name="nev" autoComplete="name" required aria-invalid={!!errors.nev} aria-describedby={describedBy("nev")} />
         {err("nev")}
       </div>
       <div className="field">
-        <label htmlFor="f-tel">Telefon</label>
-        <input id="f-tel" name="telefon" type="tel" inputMode="tel" autoComplete="tel" aria-invalid={!!errors.telefon} aria-describedby={describedBy("telefon")} />
+        <label htmlFor="f-tel">Telefon {req}</label>
+        <input
+          id="f-tel"
+          name="telefon"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          required
+          maxLength={24}
+          placeholder="+36 30 123 4567"
+          aria-invalid={!!errors.telefon}
+          aria-describedby={describedBy("telefon")}
+          onInput={(e) => {
+            const el = e.currentTarget;
+            const clean = sanitizePhone(el.value);
+            if (clean !== el.value) el.value = clean;
+            // Ha már hibát jeleztünk, gépelés közben frissítjük, hogy eltűnjön, amint jó.
+            if (errors.telefon) setFieldError("telefon", phoneError(clean));
+          }}
+          onBlur={(e) => {
+            if (e.currentTarget.value.trim()) setFieldError("telefon", phoneError(e.currentTarget.value));
+          }}
+        />
         {err("telefon")}
       </div>
       <div className="field">
@@ -106,7 +143,7 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
         {err("email")}
       </div>
       <div className="field">
-        <label htmlFor="f-szolg">Mit kell felmérni?</label>
+        <label htmlFor="f-szolg">Mit kell felmérni? {req}</label>
         <select id="f-szolg" name="szolgaltatas" required defaultValue={defaultService} aria-invalid={!!errors.szolgaltatas} aria-describedby={describedBy("szolgaltatas")}>
           <option value="" disabled>Válasszon</option>
           {services.map((s) => (
@@ -117,8 +154,8 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
         {err("szolgaltatas")}
       </div>
       <div className="field">
-        <label htmlFor="f-hely">Helyszín (település)</label>
-        <input id="f-hely" name="helyszin" autoComplete="address-level2" defaultValue={defaultPlace} aria-invalid={!!errors.helyszin} aria-describedby={describedBy("helyszin")} />
+        <label htmlFor="f-hely">Helyszín (település) {req}</label>
+        <input id="f-hely" name="helyszin" autoComplete="address-level2" required defaultValue={defaultPlace} aria-invalid={!!errors.helyszin} aria-describedby={describedBy("helyszin")} />
         {err("helyszin")}
       </div>
       <div className="field">
@@ -145,7 +182,7 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
           {status.kind === "sending" ? "Küldés…" : "Ajánlatot kérek"}
         </button>
         <p className="t-small">
-          Az adatait csak az ajánlathoz használom. <Link href="/adatkezeles">Adatkezelési tájékoztató</Link>
+          A <span className="req">*</span> jelölt mezők kitöltése kötelező. Az adatait csak az ajánlathoz használom. <Link href="/adatkezeles">Adatkezelési tájékoztató</Link>
         </p>
       </div>
 
