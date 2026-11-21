@@ -51,6 +51,17 @@ export async function POST(req: Request) {
   const smtp = { host: process.env.SMTP_HOST, user: process.env.SMTP_USER, pass: process.env.SMTP_PASS };
   const key = process.env.RESEND_API_KEY;
   if (!to || !from || (!(smtp.host && smtp.user && smtp.pass) && !key)) {
+    // Csak a hiányzó változók nevét naplózzuk, értéket soha. Vercel: Deployments → Logs.
+    const missing = Object.entries({
+      QUOTE_TO_EMAIL: to,
+      QUOTE_FROM_EMAIL: from,
+      SMTP_HOST: smtp.host,
+      SMTP_USER: smtp.user,
+      SMTP_PASS: smtp.pass,
+    })
+      .filter(([, v]) => !v)
+      .map(([k]) => k);
+    console.error("[ajanlat] Nincs beállítva a levélküldés, hiányzó környezeti változók:", missing.join(", "));
     return NextResponse.json({ ok: false, reason: "not_configured" }, { status: 503 });
   }
 
