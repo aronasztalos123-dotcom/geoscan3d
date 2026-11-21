@@ -31,15 +31,18 @@ Prices are **not shown** anywhere (the brief's ranges are unconfirmed). Every CT
 
 ## Quote form
 
-`app/api/ajanlat/route.ts` sends mail through Resend when these env vars are set (see `.env.example`):
+`app/api/ajanlat/route.ts` sends mail through the Forpsi SMTP server (mailbox `ajanlat@geoscan3d.hu` → `info@geoscan3d.hu`) when these env vars are set (see `.env.example`):
 
 ```
-RESEND_API_KEY=
-QUOTE_TO_EMAIL=
-QUOTE_FROM_EMAIL="Ajánlatkérés <ajanlat@yourdomain.hu>"
+QUOTE_TO_EMAIL=info@geoscan3d.hu
+QUOTE_FROM_EMAIL="Ajánlatkérés <ajanlat@geoscan3d.hu>"
+SMTP_HOST=smtp.forpsi.com
+SMTP_PORT=587
+SMTP_USER=ajanlat@geoscan3d.hu
+SMTP_PASS=            # the ajanlat@ mailbox password
 ```
 
-Without them the API answers 503 and the form shows a call / pre-filled e-mail fallback. It never fakes a success.
+`RESEND_API_KEY` is an optional fallback when no SMTP is set. Without either, the API answers 503 and the form shows a call / pre-filled e-mail fallback. It never fakes a success.
 
 ## The hero
 

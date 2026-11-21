@@ -26,7 +26,7 @@ Designer's world: CAD layers, DWG files, plan sheets with title blocks, sections
 
 ## Capabilities and Constraints
 
-- Next.js 16 App Router (Turbopack), Tailwind v4 + plain CSS, framer-motion (LazyMotion), static except `/api/ajanlat` (quote form, Resend env vars pending). Deploy target Vercel.
+- Next.js 16 App Router (Turbopack), Tailwind v4 + plain CSS, framer-motion (LazyMotion), static except `/api/ajanlat` (quote form: Forpsi SMTP, Resend fallback). Deploy target Vercel.
 - Routes: `/`, `/szolgaltatasok/[slug]` (5 services), `/lezerszkenneles/[city]` (6 cities), `/adatkezeles`, 404.
 - Existing WebGL point-cloud engine (`lib/scan/`, procedural sample house, built in a Web Worker) that projects to an SVG plan; this is the product's own demonstration material and stays.
 - Prices are not shown (brief's ranges unconfirmed); quote is individual and written before work starts.

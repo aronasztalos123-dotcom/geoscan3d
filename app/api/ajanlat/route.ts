@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 /**
- * Ajánlatkérés fogadása. E-mailt a Resend API-n küld, ha a környezeti változók be vannak állítva
- * (Vercel: Project Settings → Environment Variables):
- *   RESEND_API_KEY      a Resend kulcs
- *   QUOTE_TO_EMAIL      ide érkeznek az ajánlatkérések
- *   QUOTE_FROM_EMAIL    ellenőrzött feladó, pl. "Ajánlatkérés <ajanlat@domain.hu>"
+ * Ajánlatkérés fogadása. Környezeti változók (Vercel: Project Settings → Environment Variables):
+ *   QUOTE_TO_EMAIL      ide érkeznek az ajánlatkérések, pl. info@geoscan3d.hu
+ *   QUOTE_FROM_EMAIL    feladó, pl. "Ajánlatkérés <ajanlat@geoscan3d.hu>" (egyezzen az SMTP_USER fiókkal)
+ * Elsődleges: SMTP (Forpsi): SMTP_HOST=smtp.forpsi.com, SMTP_PORT=587, SMTP_USER, SMTP_PASS.
+ * Tartalék, ha nincs SMTP: RESEND_API_KEY.
  * Beállítás nélkül 503-at ad, és az űrlap telefonos / e-mailes tartalékot mutat. Csendes "siker" nincs.
  */
 
@@ -41,13 +42,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, message: "Az e-mail-cím formátuma nem jó." }, { status: 422 });
   }
 
-  const key = process.env.RESEND_API_KEY;
   const to = process.env.QUOTE_TO_EMAIL;
   const from = process.env.QUOTE_FROM_EMAIL;
-  if (!key || !to || !from) {
+  const smtp = { host: process.env.SMTP_HOST, user: process.env.SMTP_USER, pass: process.env.SMTP_PASS };
+  const key = process.env.RESEND_API_KEY;
+  if (!to || !from || (!(smtp.host && smtp.user && smtp.pass) && !key)) {
     return NextResponse.json({ ok: false, reason: "not_configured" }, { status: 503 });
   }
 
+  const subject = `Ajánlatkérés: ${d.szolgaltatas}, ${d.helyszin}`;
   const text = [
     `Név: ${d.nev}`,
     `Telefon: ${d.telefon || "-"}`,
@@ -60,20 +63,32 @@ export async function POST(req: Request) {
     d.uzenet || "(nincs üzenet)",
   ].join("\n");
 
+  const failed = () =>
+    NextResponse.json({ ok: false, message: "A küldés nem sikerült. Kérem, hívjon telefonon." }, { status: 502 });
+
+  if (smtp.host && smtp.user && smtp.pass) {
+    const port = Number(process.env.SMTP_PORT || 587);
+    const transport = nodemailer.createTransport({
+      host: smtp.host,
+      port,
+      secure: port === 465,
+      requireTLS: port !== 465,
+      auth: { user: smtp.user, pass: smtp.pass },
+    });
+    try {
+      await transport.sendMail({ from, to, replyTo: d.email || undefined, subject, text });
+    } catch (err) {
+      console.error("[ajanlat] SMTP küldés sikertelen:", err instanceof Error ? err.message : err);
+      return failed();
+    }
+    return NextResponse.json({ ok: true });
+  }
+
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: d.email || undefined,
-      subject: `Ajánlatkérés: ${d.szolgaltatas}, ${d.helyszin}`,
-      text,
-    }),
+    body: JSON.stringify({ from, to: [to], reply_to: d.email || undefined, subject, text }),
   });
-
-  if (!res.ok) {
-    return NextResponse.json({ ok: false, message: "A küldés nem sikerült. Kérem, hívjon telefonon." }, { status: 502 });
-  }
+  if (!res.ok) return failed();
   return NextResponse.json({ ok: true });
 }
