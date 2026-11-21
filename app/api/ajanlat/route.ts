@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { isValidPhone } from "@/lib/phone";
+import { buildQuoteEmail } from "@/lib/quoteEmail";
 
 /**
  * Ajánlatkérés fogadása. Környezeti változók (Vercel: Project Settings → Environment Variables):
@@ -65,18 +66,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, reason: "not_configured" }, { status: 503 });
   }
 
-  const subject = `Ajánlatkérés: ${d.szolgaltatas}, ${d.helyszin}`;
-  const text = [
-    `Név: ${d.nev}`,
-    `Telefon: ${d.telefon || "-"}`,
-    `E-mail: ${d.email || "-"}`,
-    `Szolgáltatás: ${d.szolgaltatas}`,
-    `Helyszín: ${d.helyszin}`,
-    `Becsült méret: ${d.meret || "-"}`,
-    `Szoftver: ${d.szoftver || "-"}`,
-    "",
-    d.uzenet || "(nincs üzenet)",
-  ].join("\n");
+  const { subject, text, html } = buildQuoteEmail(d);
 
   const failed = () =>
     NextResponse.json({ ok: false, message: "A küldés nem sikerült. Kérem, hívjon telefonon." }, { status: 502 });
@@ -91,7 +81,7 @@ export async function POST(req: Request) {
       auth: { user: smtp.user, pass: smtp.pass },
     });
     try {
-      await transport.sendMail({ from, to, replyTo: d.email || undefined, subject, text });
+      await transport.sendMail({ from, to, replyTo: d.email || undefined, subject, text, html });
     } catch (err) {
       console.error("[ajanlat] SMTP küldés sikertelen:", err instanceof Error ? err.message : err);
       return failed();
@@ -102,7 +92,7 @@ export async function POST(req: Request) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from, to: [to], reply_to: d.email || undefined, subject, text }),
+    body: JSON.stringify({ from, to: [to], reply_to: d.email || undefined, subject, text, html }),
   });
   if (!res.ok) return failed();
   return NextResponse.json({ ok: true });
