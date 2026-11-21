@@ -105,7 +105,7 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
       else delete next[k];
       return next;
     });
-  const req = <span className="req" aria-hidden="true">*</span>;
+  const req = <span className="field-req" aria-hidden="true">*</span>;
 
   return (
     <form ref={formRef} className="qform" noValidate onSubmit={onSubmit} aria-label="Ajánlatkérés">
@@ -185,7 +185,7 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
           {status.kind === "sending" ? "Küldés…" : "Ajánlatot kérek"}
         </button>
         <p className="t-small">
-          A <span className="req">*</span> jelölt mezők kitöltése kötelező. Az adatait csak az ajánlathoz használom. <Link href="/adatkezeles">Adatkezelési tájékoztató</Link>
+          A <span className="field-req">*</span> jelölt mezők kitöltése kötelező. Az adatait csak az ajánlathoz használom. <Link href="/adatkezeles">Adatkezelési tájékoztató</Link>
         </p>
       </div>
 

@@ -1063,7 +1063,7 @@ p { text-wrap: pretty; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--forest); background-color: #fff; }
 .field [aria-invalid="true"] { border-color: #a3341c; }
 .field-err { color: #a3341c; font-size: 14.5px; font-weight: 500; }
-.req { color: #a3341c; font-weight: 700; }
+.field-req { color: #a3341c; font-weight: 700; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; } /* taste-skill-ignore: rejtett spamcsapda, nem vonal */
 .qform-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 6px; }
 .qform-foot .t-s { color: var(--muted); }
