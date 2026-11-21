@@ -30,10 +30,10 @@ Prices are **not shown** anywhere (the brief's ranges are unconfirmed). Every CT
 
 ## Quote form
 
-`app/api/ajanlat/route.ts` sends mail through the Forpsi SMTP server (mailbox `ajanlat@geoscan3d.hu` → `info@geoscan3d.hu`) when these env vars are set (see `.env.example`):
+`app/api/ajanlat/route.ts` sends mail through the Forpsi SMTP server (from and to the `ajanlat@geoscan3d.hu` mailbox) when these env vars are set (see `.env.example`). Only quote-form mail goes to `ajanlat@`; every other address on the site (`site.email`) stays `info@geoscan3d.hu`.
 
 ```
-QUOTE_TO_EMAIL=info@geoscan3d.hu
+QUOTE_TO_EMAIL=ajanlat@geoscan3d.hu
 QUOTE_FROM_EMAIL="Ajánlatkérés <ajanlat@geoscan3d.hu>"
 SMTP_HOST=smtp.forpsi.com
 SMTP_PORT=587

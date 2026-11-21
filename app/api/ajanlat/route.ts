@@ -4,7 +4,7 @@ import { isValidPhone } from "@/lib/phone";
 
 /**
  * Ajánlatkérés fogadása. Környezeti változók (Vercel: Project Settings → Environment Variables):
- *   QUOTE_TO_EMAIL      ide érkeznek az ajánlatkérések, pl. info@geoscan3d.hu
+ *   QUOTE_TO_EMAIL      ide érkeznek az űrlap ajánlatkérései: ajanlat@geoscan3d.hu (minden más cím info@ marad)
  *   QUOTE_FROM_EMAIL    feladó, pl. "Ajánlatkérés <ajanlat@geoscan3d.hu>" (egyezzen az SMTP_USER fiókkal)
  * Elsődleges: SMTP (Forpsi): SMTP_HOST=smtp.forpsi.com, SMTP_PORT=587, SMTP_USER, SMTP_PASS.
  * Tartalék, ha nincs SMTP: RESEND_API_KEY.

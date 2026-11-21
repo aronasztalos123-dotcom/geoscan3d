@@ -24,6 +24,18 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
   const [sw, setSw] = useState(defaultSoftware);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLFormElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const showDialog = status.kind === "sent" || status.kind === "fallback" || status.kind === "error";
+
+  // A küldés eredménye a képernyő közepén, felugró ablakban jelenik meg, hogy ne lehessen elnézni.
+  useEffect(() => {
+    const d = dialogRef.current;
+    if (!d) return;
+    if (showDialog && !d.open) d.showModal();
+    if (!showDialog && d.open) d.close();
+  }, [showDialog]);
+
+  const closeDialog = () => setStatus({ kind: "idle" });
 
   useEffect(() => {
     const on = (e: Event) => {
@@ -79,15 +91,6 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
       setStatus({ kind: "fallback", mailto: buildMailto(data) });
     }
   };
-
-  if (status.kind === "sent") {
-    return (
-      <div className="form-done" role="status">
-        <h3>Megkaptam az ajánlatkérést.</h3>
-        <p>A megadott elérhetőségen jelentkezem. Ha sürgős, hívjon: <a href={telHref}>{site.phoneDisplay}</a>.</p>
-      </div>
-    );
-  }
 
   const err = (k: string) =>
     errors[k] ? (
@@ -186,18 +189,47 @@ export function QuoteForm({ defaultService = "", defaultPlace = "", defaultSoftw
         </p>
       </div>
 
-      {status.kind === "fallback" ? (
-        <div className="form-fallback field-wide" role="alert">
-          <p>
-            Az online küldés még nincs beállítva, ezért az üzenete nem ment el. Hívjon:{" "}
-            <a href={telHref}>{site.phoneDisplay}</a>, vagy küldje el e-mailben, a kitöltött adatokkal együtt:
-          </p>
-          <a className="btn" href={status.mailto}>E-mail megnyitása</a>
+      <dialog
+        ref={dialogRef}
+        className={`qdialog${status.kind === "sent" ? " is-ok" : " is-err"}`}
+        aria-labelledby="qdialog-title"
+        onClose={closeDialog}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) closeDialog(); // kattintás a háttérre
+        }}
+      >
+        <div className="qdialog-body">
+          <span className="qdialog-icon" aria-hidden="true">
+            {status.kind === "sent" ? (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round"><path d="M12 7v6M12 17h.01" /></svg>
+            )}
+          </span>
+          {status.kind === "sent" ? (
+            <>
+              <h3 id="qdialog-title">Sikeresen elküldte az ajánlatkérést</h3>
+              <p>Köszönöm, megkaptam. Hamarosan jelentkezem a megadott telefonszámon. Ha sürgős, hívjon: <a href={telHref}>{site.phoneDisplay}</a>.</p>
+              <button type="button" className="btn" onClick={closeDialog} autoFocus>Rendben</button>
+            </>
+          ) : status.kind === "fallback" ? (
+            <>
+              <h3 id="qdialog-title">Az üzenet nem ment el</h3>
+              <p>Az online küldés most nem működik. Hívjon: <a href={telHref}>{site.phoneDisplay}</a>, vagy küldje el e-mailben, a kitöltött adatokkal együtt.</p>
+              <div className="qdialog-actions">
+                <a className="btn" href={status.mailto}>E-mail megnyitása</a>
+                <button type="button" className="btn qdialog-secondary" onClick={closeDialog}>Bezárás</button>
+              </div>
+            </>
+          ) : status.kind === "error" ? (
+            <>
+              <h3 id="qdialog-title">Az üzenet nem ment el</h3>
+              <p>{status.message} Telefon: <a href={telHref}>{site.phoneDisplay}</a>.</p>
+              <button type="button" className="btn" onClick={closeDialog} autoFocus>Bezárás</button>
+            </>
+          ) : null}
         </div>
-      ) : null}
-      {status.kind === "error" ? (
-        <p className="form-fallback field-wide" role="alert">{status.message}</p>
-      ) : null}
+      </dialog>
     </form>
   );
 }
