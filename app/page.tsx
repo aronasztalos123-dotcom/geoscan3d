@@ -51,7 +51,7 @@ export default function Home() {
       <section className="sec sec-paper2" aria-labelledby="szolg-h" style={{ paddingTop: "clamp(88px, 10vw, 160px)" }}>
         <div className="wrap sindex" data-reveal>
           <div className="sindex-head">
-            <h2 id="szolg-h" className="t-xl" data-r>Mit mérek fel</h2>
+            <h2 id="szolg-h" className="t-xl" data-r>Szolgáltatások</h2>
             <p data-r>
               <Link href="/szolgaltatasok" className="arrow-link">Összes szolgáltatás <span className="ar" aria-hidden="true">→</span></Link>
             </p>
