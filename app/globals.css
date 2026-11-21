@@ -1256,3 +1256,14 @@ p { text-wrap: pretty; }
   background: none; border: 0; padding: 0; font: inherit; color: inherit;
   text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
 }
+
+/* Rólam, "Ahol dolgozom": kiszállási zónák városonként. */
+.areas { list-style: none; margin: clamp(40px, 5vw, 72px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.area { background: var(--forest-2); border-radius: var(--r); padding: clamp(22px, 2.4vw, 32px); display: grid; gap: 12px; align-content: start; scroll-margin-top: calc(var(--nav-h) + 24px); }
+.area h3 { font-size: clamp(19px, 1.5vw, 22px); line-height: 1.2; color: var(--paper); }
+.area p { color: var(--on-dark-2); font-size: 16px; line-height: 1.5; margin: 0; }
+.area .area-towns { font-size: 14.5px; }
+.area .area-fee { color: var(--paper); font-size: 15px; margin-top: auto; }
+.area .area-fee b { color: var(--lime); font-weight: 650; }
+@media (max-width: 1099px) { .areas { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 599px) { .areas { grid-template-columns: 1fr; } }

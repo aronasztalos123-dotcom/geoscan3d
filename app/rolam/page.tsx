@@ -8,10 +8,12 @@ import { ThreeForms } from "@/components/ThreeForms";
 import { AreaMap } from "@/components/AreaMap";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
+import { areaFee, areas } from "@/lib/areas";
+import { fmtFt } from "@/lib/pricing";
 
 export const metadata: Metadata = pageMeta({
-  title: `${site.owner}, földmérő`,
-  description: `${site.owner} földmérő, kézi lézerszkennerrel mér Borsod-Abaúj-Zemplénben és az M3 mentén Budapestig. Minden mérésnek koordinátája van.`,
+  title: `${site.owner}, földmérő Miskolcon`,
+  description: `${site.owner} miskolci földmérő. Kézi lézerszkennerrel mér Miskolcon, Borsodban, Egerben, Gyöngyösön, Hatvanban és Budapestig. Kiszállási díjak városonként.`,
   path: "/rolam",
 });
 
@@ -70,11 +72,13 @@ export default function AboutPage() {
 
       <ThreeForms title="Amit egy bejárásból kap" />
 
-      <section className="sec sec-forest" aria-labelledby="ter-h">
+      <section id="terulet" className="sec sec-forest" aria-labelledby="ter-h">
         <div className="wrap split" data-reveal>
           <div className="split-l">
             <h2 id="ter-h" className="t-xl" data-r>Ahol dolgozom</h2>
-            <p className="t-lead muted" data-r>{site.area}.</p>
+            <p className="t-lead muted" data-r>
+              Miskolci földmérő vagyok. Kiszállok Borsod-Abaúj-Zemplén egészébe, Hevesbe, és az M3 mentén Budapestig.
+            </p>
           </div>
           <figure className="split-r" data-r="img">
             <div style={{ background: "var(--forest-2)", borderRadius: "var(--r)", padding: "clamp(12px, 2vw, 24px)" }}>
@@ -82,6 +86,24 @@ export default function AboutPage() {
             </div>
             <figcaption className="cap">Kiszállok a megye egészébe, és az M3 mentén Budapestig. Vázlatos térkép.</figcaption>
           </figure>
+        </div>
+        <div className="wrap" data-reveal>
+          <ul className="areas">
+            {areas.map((a) => {
+              const fee = areaFee(a);
+              return (
+                <li key={a.id} id={a.id} className="area" data-r>
+                  <h3>{a.title}</h3>
+                  <p>{a.text}</p>
+                  <p className="area-towns">{a.cities.join(", ")}</p>
+                  <p className="area-fee">Kiszállás: <b>{fee ? `nettó ${fmtFt(fee)}` : "díjtalan"}</b></p>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="muted" data-r style={{ marginTop: 24 }}>
+            Pontos irányár a kiszállással együtt: <Link href="/arkalkulator" className="link">árkalkulátor</Link>.
+          </p>
         </div>
       </section>
 

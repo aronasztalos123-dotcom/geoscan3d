@@ -6,7 +6,7 @@ import { siteUrl } from "@/lib/site";
  * Tartalom utolsó érdemi módosítása. Ha egy oldal szövege változik, ezt frissítse; a build ideje nem jó jel,
  * mert minden deploynál "megváltozottnak" mutatná az összes oldalt, és a Google megtanulja figyelmen kívül hagyni.
  */
-const updated = new Date("2026-11-20");
+const updated = new Date("2026-11-21");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const abs = (p: string) => `${siteUrl}${p}`;

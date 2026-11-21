@@ -1,6 +1,8 @@
 import { faq } from "@/lib/content";
 import { services } from "@/lib/services";
 import { site, siteUrl } from "@/lib/site";
+import { areaFee, areas } from "@/lib/areas";
+import { fmtFt } from "@/lib/pricing";
 
 export const dynamic = "force-static";
 
@@ -13,8 +15,13 @@ export function GET() {
     "",
     `- Telefon: ${site.phoneDisplay}`,
     `- E-mail: ${site.email}`,
-    "- Szolgáltatási terület: Miskolc, Eger, Gyöngyös, Hatvan, Gödöllő, Budapest, Borsod-Abaúj-Zemplén, Heves és Pest vármegye",
+    `- Székhely: Miskolc. Szolgáltatási terület: Borsod-Abaúj-Zemplén, Heves és Pest vármegye, az M3 mentén Budapestig`,
     "- Ár: egyedi, írásos ajánlat a munka előtt; irányár az árkalkulátorban",
+    "",
+    "## Hol dolgozik (földmérő Miskolcon és környékén)",
+    "",
+    ...areas.map((a) => `- ${a.title}: ${a.cities.join(", ")}. Kiszállás: ${areaFee(a) ? `nettó ${fmtFt(areaFee(a))}` : "díjtalan"}. ${a.text}`),
+    `- Részletek: ${siteUrl}/rolam#terulet`,
     "",
     "## Szolgáltatások",
     "",

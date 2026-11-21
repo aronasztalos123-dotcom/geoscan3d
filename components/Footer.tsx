@@ -14,7 +14,7 @@ export function Footer() {
           <div>
             <h2>Elérhetőség</h2>
             <p className="strong">{site.owner}</p>
-            <p>földmérő</p>
+            <p>földmérő, Miskolc</p>
             <ul style={{ marginTop: 14 }}>
               <li><a href={telHref}>{site.phoneDisplay}</a></li>
               <li><a href={mailHref}>{site.email}</a></li>
@@ -24,6 +24,7 @@ export function Footer() {
             <h2 id="f-old">Oldalak</h2>
             <ul>
               {nav.map((n) => <li key={n.href}><Link href={n.href}>{n.label}</Link></li>)}
+              <li><Link href="/rolam#terulet">Ahol dolgozom</Link></li>
               <li><Link href="/kapcsolat">Kapcsolat, ajánlatkérés</Link></li>
             </ul>
           </nav>

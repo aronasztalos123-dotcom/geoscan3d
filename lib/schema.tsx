@@ -1,5 +1,6 @@
 import { services, type Service } from "./services";
 import { isSet, site, siteUrl } from "./site";
+import { allCities } from "./areas";
 
 const id = `${siteUrl}/#ceg`;
 const personId = `${siteUrl}/#foldmero`;
@@ -7,7 +8,7 @@ const websiteId = `${siteUrl}/#weboldal`;
 const abs = (p: string) => (p.startsWith("http") ? p : `${siteUrl}${p}`);
 
 /** A szolgáltatási terület városai (csak a strukturált adathoz). */
-const areaCities = ["Miskolc", "Eger", "Gyöngyös", "Hatvan", "Gödöllő", "Budapest"];
+const areaCities = allCities;
 const areaRegions = ["Borsod-Abaúj-Zemplén vármegye", "Heves vármegye", "Pest vármegye"];
 
 /** LocalBusiness (ProfessionalService), szolgáltatási terület alapon. Helykitöltő mező nem kerül bele. */
@@ -65,6 +66,9 @@ export function businessSchema() {
       addressLocality: site.address.city,
       addressCountry: "HU",
     };
+  } else {
+    // Szolgáltatási területtel dolgozó cég: utcacím nélkül, csak a település, ahonnan kiszáll.
+    s.address = { "@type": "PostalAddress", addressLocality: site.baseCity, addressRegion: "Borsod-Abaúj-Zemplén", addressCountry: "HU" };
   }
   return s;
 }

@@ -16,6 +16,8 @@ export const site = {
   gaId: "G-44DSM38ZG6",
   // TODO(ügyfél): székhely, ha nyilvános. Üresen hagyva a schema areaServed alapú marad.
   address: null as null | { street: string; zip: string; city: string },
+  // A kiszállási zónák innen számolnak (lib/pricing.ts). Utcacím nélkül is mehet a schemába, településként.
+  baseCity: "Miskolc",
   area: "Borsod-Abaúj-Zemplén és az M3 mentén Budapestig",
 };
 
