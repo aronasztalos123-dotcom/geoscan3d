@@ -248,7 +248,7 @@ p { text-wrap: pretty; }
   text-decoration: none; white-space: nowrap; opacity: 0.92;
   transition: opacity 200ms var(--ease-out);
 }
-.nav-tel svg { color: var(--lime); transition: color 300ms var(--ease-out); }
+.nav-tel svg { flex: none; width: 20px; height: 20px; color: var(--lime); transition: color 300ms var(--ease-out); }
 .nav[data-solid="true"] .nav-tel svg { color: var(--forest); }
 @media (hover: hover) and (pointer: fine) {
   .nav-tel:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
