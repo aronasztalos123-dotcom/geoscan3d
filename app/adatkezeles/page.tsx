@@ -25,7 +25,7 @@ export default function Privacy() {
           üzenetet kizárólag az ajánlat elkészítéséhez és a kapcsolatfelvételhez használom.
         </p>
         <h2>Meddig őrzöm</h2>
-        <p>[MEGŐRZÉSI IDŐ] Ha nem jön létre megbízás, az adatokat a megadott idő után törlöm.</p>
+        <p>30 nap. Ha nem jön létre megbízás, az adatokat ennyi idő után törlöm.</p>
         <h2>Kinek adom át</h2>
         <p>
           Senkinek. Az űrlap üzenete e-mailben érkezik; a levélküldést a Resend (Resend, Inc.) szolgáltatás végzi, a

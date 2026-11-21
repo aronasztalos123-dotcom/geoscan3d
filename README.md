@@ -25,7 +25,6 @@ All client facts live in **`lib/site.ts`**. Anything still in `[BRACKETS]` is a 
 | `[LOGÓ]` | `site.logo` | URL of the logo for schema; the header uses the target mark until a logo exists |
 | `[3D DEMÓ LINK]` | `site.demoUrl` | embeddable Gaussian Splat / 3D viewer URL; loads only on click |
 | address | `site.address` | optional; leave `null` for a service-area business |
-| `[MEGŐRZÉSI IDŐ]` | `app/adatkezeles/page.tsx` | the privacy page is a marked draft, have it checked |
 
 Prices are **not shown** anywhere (the brief's ranges are unconfirmed). Every CTA reads "Kérjen egyedi ajánlatot" / "Ajánlatot kérek".
 
